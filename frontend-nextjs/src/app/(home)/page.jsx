@@ -1,5 +1,5 @@
 import Carousel from "@/src/components/layout/carousel/Carousel";
-import ProductTabs from "@/src/components/producTabs/ProductTabs";
+import ProductTabs from "@/src/components/products/ProductTabs";
 import { getFetch } from "@/utils/fetch";
 
 export default async function page() {
