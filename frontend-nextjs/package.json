@@ -12,7 +12,8 @@
     "lucide-react": "^0.390.0",
     "next": "14.2.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-tabs": "^6.0.2"
   },
   "devDependencies": {
     "daisyui": "^4.11.1",
