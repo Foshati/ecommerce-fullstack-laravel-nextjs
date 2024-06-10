@@ -1,12 +1,17 @@
 import Carousel from "@/src/components/layout/carousel/Carousel";
-import Test from "@/src/components/layout/test";
-import React from "react";
+import ProductTabs from "@/src/components/producTabs/ProductTabs";
+import { getFetch } from "@/utils/fetch";
 
-export default function page() {
+export default async function page() {
+  const productsTabFetch = await getFetch("/products/products-tabs");
+  // console.log(productsTabFetch);
   return (
     <div>
       <Carousel />
-      <Test />
+      <ProductTabs
+        tabList={productsTabFetch.tabList}
+        tabPanel={productsTabFetch.tabPanel}
+      />
     </div>
   );
 }
