@@ -6,4 +6,31 @@ const numberFormat = (number) => {
   return new Intl.NumberFormat().format(number);
 };
 
-export { getBlurDataUrl, numberFormat };
+const handleError = (message) => {
+  if (typeof message === "object") {
+    return Object.values(message)
+      .flatMap((e) => e)
+      .join();
+  }
+
+  return message;
+};
+
+export { getBlurDataUrl, numberFormat, handleError };
+
+//! Other methods
+
+// const handleError = (message) => {
+//     if (typeof message === "object") {
+//       const errors = [];
+//       Object.keys(message).map((key) => {
+//         message[key].map((e) => {
+//           errors.push(e);
+//         });
+//       });
+
+//       return errors.join();
+//     }
+
+//     return message;
+//   };
