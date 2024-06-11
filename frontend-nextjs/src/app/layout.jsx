@@ -3,6 +3,7 @@ import "./globals.css";
 
 import Footer from "../components/layout/footer/Footer";
 import Header from "../components/layout/header/Header";
+import HotToast from "../components/libraries/hotToast/HotToast";
 
 const lexend = Lexend({ subsets: ["latin"] });
 
@@ -17,7 +18,10 @@ export default function RootLayout({ children }) {
       <body className={lexend.className}>
         <main className="flex flex-col min-h-screen">
           <Header />
-          <div className="flex-1">{children}</div>
+          <div className="flex-1">
+            {children}
+            <HotToast />
+          </div>
           <Footer />
         </main>
       </body>
