@@ -1,5 +1,5 @@
 import About from "@/src/components/about/About";
-import Contact from "@/src/components/contact/contact";
+import Contact from "@/src/components/contact/Contact";
 import Carousel from "@/src/components/layout/carousel/Carousel";
 import ProductTabs from "@/src/components/products/ProductTabs";
 import { getFetch } from "@/utils/fetch";
