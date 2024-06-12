@@ -12,7 +12,7 @@ export default function About() {
               alt="hero"
               src={aboutImage}
               width={300}
-              height={300}
+              height="auto"
             />
           </div>
           <div className="flex flex-col items-center text-center lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 md:items-start md:text-left">

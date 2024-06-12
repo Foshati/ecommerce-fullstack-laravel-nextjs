@@ -1,4 +1,3 @@
-// ProductItem.jsx
 import { getBlurDataUrl, numberFormat } from "@/utils/helpers";
 import { ShoppingCart } from "lucide-react";
 import Image from "next/image";
@@ -11,8 +10,8 @@ export default function ProductItem({ product }) {
         <Image
           src={product.primary_image}
           alt={product.slug}
-          layout="fill"
-          objectFit="cover"
+          width={500}
+          height={500}
           className="object-cover pointer-events-none"
           placeholder="blur"
           blurDataURL={getBlurDataUrl()}

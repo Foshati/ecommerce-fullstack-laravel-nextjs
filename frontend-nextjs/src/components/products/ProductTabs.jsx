@@ -2,7 +2,7 @@
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import ProductItem from "./ProductItem";
 
-export default async function ProductTabs({ tabList, tabPanel }) {
+export default function ProductTabs({ tabList, tabPanel }) {
   return (
     <>
       <Tabs
