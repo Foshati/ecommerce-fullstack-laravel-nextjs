@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import Image from "next/image";
 
 export const Carousel = ({ data }) => {
   const [slide, setSlide] = useState(0);
@@ -28,19 +27,12 @@ export const Carousel = ({ data }) => {
         <ChevronLeft className="w-6 h-6" />
       </button>
       {data.map((item, idx) => (
-        <div
+        <img
+          src={item.src}
+          alt={item.alt}
           key={idx}
-          className={`w-full h-screen relative ${slide === idx ? "block" : "hidden"}`}
-        >
-          <Image
-            src={item.src}
-            alt={item.alt}
-            fill
-            priority={idx === 0} // Add priority for the first image
-            style={{ objectFit: "cover" }}
-            className="w-full h-full"
-          />
-        </div>
+          className={`w-full h-screen object-cover ${slide === idx ? "block" : "hidden"}`}
+        />
       ))}
       <button
         onClick={nextSlide}
