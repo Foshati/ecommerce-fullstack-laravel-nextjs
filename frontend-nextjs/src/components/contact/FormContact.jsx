@@ -8,20 +8,19 @@ import { FormContactAction } from "@/actions/FormContactAction";
 
 export default function FormContact() {
   const [state, formAction] = useFormState(FormContactAction, {});
+  //! Other methodss
+  // useEffect(() => {
+  //   if (state?.status === "error") {
+  //     toast.error(state.message);
+  //   } else {
+  //     toast.success(state.message);
+  //   }
+  // }, [state]);
 
   useEffect(() => {
     toast(state?.message, { type: `${state?.status}` });
   }, [state]);
 
-  //! Other methods
-  /* useEffect(() => {
-    if (state?.status === "error") {
-      toast.error(state.message);
-    } else {
-      toast.success(state.message);
-    }
-  }, [state]);
- */
   return (
     <form action={formAction}>
       <h2 className="mb-1 text-lg font-medium text-white title-font">

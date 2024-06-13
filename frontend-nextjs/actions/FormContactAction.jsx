@@ -18,7 +18,7 @@ async function FormContactAction(state, formData) {
 
   const data = await postFetch("/contact-us", { name, email, subject, text });
 
-  if (data.status === "success") {
+  if (data.status === "error") {
     return {
       status: data.status,
       message: "Your message was successfully registered",
