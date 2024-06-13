@@ -74,7 +74,7 @@ export default function FormContact() {
         />
       </div>
       <div className="flex justify-center">
-        <SubmitButton title="Send" style="btn btn-wide" />
+        <SubmitButton title="Send" style="btn btn-wide btn-neutral" />
       </div>
       <p className="mt-3 text-xs text-gray-400 text-opacity-90">
         Chicharrones blog helvetica normcore iceland tousled brook viral

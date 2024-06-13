@@ -27,13 +27,9 @@ export default function About() {
               park mlkshk tote bag selvage hot chicken authentic tumeric
               truffaut hexagon try-hard chambray.
             </p>
-            <div className="flex justify-center">
-              <button className="inline-flex px-6 py-2 text-lg text-white bg-indigo-500 border-0 rounded focus:outline-none hover:bg-indigo-600">
-                Button
-              </button>
-              <button className="inline-flex px-6 py-2 ml-4 text-lg text-gray-400 bg-gray-800 border-0 rounded focus:outline-none hover:bg-gray-700 hover:text-white">
-                Button
-              </button>
+            <div className="flex justify-center space-x-8">
+              <button className="btn btn-neutral">Reade more</button>
+              <button className="btn-ghost btn">Support</button>
             </div>
           </div>
         </div>

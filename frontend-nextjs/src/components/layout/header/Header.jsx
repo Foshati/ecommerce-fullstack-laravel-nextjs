@@ -7,7 +7,6 @@ import NavbarList from "./NavbarList"; // Import the NavbarList component
 function Header() {
   return (
     <header className="sticky top-0 left-0 z-50 w-full mx-auto transition-all bg-black bg-opacity-50 isSticky">
-      {/* navbar */}
       <div className="bg-black bg-opacity-50 navbar">
         <div className="navbar-start">
           <div className="dropdown">
@@ -27,9 +26,7 @@ function Header() {
         <div className="hidden navbar-center lg:flex">
           <NavbarList />
         </div>
-        {/* navbar-end */}
         <div className="flex gap-4 navbar-end">
-          {/* Search */}
           <div className="hidden form-control lg:block">
             <input
               type="text"
@@ -37,7 +34,6 @@ function Header() {
               className="w-24 input input-bordered md:w-auto"
             />
           </div>
-          {/* Sign in */}
           <a className="btn">Sign in</a>
         </div>
       </div>

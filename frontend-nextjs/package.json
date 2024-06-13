@@ -9,10 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "framer-motion": "^11.2.10",
     "leaflet": "^1.9.4",
     "lucide-react": "^0.390.0",
     "next": "14.2.3",
     "react": "^18",
+    "react-carousel-slider": "^2.0.13",
     "react-dom": "^18",
     "react-hot-toast": "^2.4.1",
     "react-tabs": "^6.0.2"

@@ -1,64 +1,62 @@
-export default function Carousel() {
+"use client";
+
+import React, { useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
+
+export const Carousel = ({ data }) => {
+  const [slide, setSlide] = useState(0);
+
+  const nextSlide = () => {
+    setSlide(slide === data.length - 1 ? 0 : slide + 1);
+  };
+
+  const prevSlide = () => {
+    setSlide(slide === 0 ? data.length - 1 : slide - 1);
+  };
+
+  if (!data || data.length === 0) {
+    return null; // Return null or a fallback UI if data is not available
+  }
+
   return (
-    <div>
-      <div className="carousel w-full">
-        <div id="slide1" className="carousel-item relative w-full">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg"
-            className="w-full"
+    <div className="relative w-full overflow-hidden">
+      <button
+        onClick={prevSlide}
+        className="absolute p-2 text-white transform -translate-y-1/2 bg-black bg-opacity-50 rounded-full top-1/2 left-4"
+      >
+        <ChevronLeft className="w-6 h-6" />
+      </button>
+      {data.map((item, idx) => (
+        <div
+          key={idx}
+          className={`w-full h-screen relative ${slide === idx ? "block" : "hidden"}`}
+        >
+          <Image
+            src={item.src}
+            alt={item.alt}
+            fill
+            priority={idx === 0} // Add priority for the first image
+            style={{ objectFit: "cover" }}
+            className="w-full h-full"
           />
-          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-            <a href="#slide4" className="btn btn-circle">
-              ❮
-            </a>
-            <a href="#slide2" className="btn btn-circle">
-              ❯
-            </a>
-          </div>
         </div>
-        <div id="slide2" className="carousel-item relative w-full">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.jpg"
-            className="w-full"
-          />
-          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-            <a href="#slide1" className="btn btn-circle">
-              ❮
-            </a>
-            <a href="#slide3" className="btn btn-circle">
-              ❯
-            </a>
-          </div>
-        </div>
-        <div id="slide3" className="carousel-item relative w-full">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.jpg"
-            className="w-full"
-          />
-          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-            <a href="#slide2" className="btn btn-circle">
-              ❮
-            </a>
-            <a href="#slide4" className="btn btn-circle">
-              ❯
-            </a>
-          </div>
-        </div>
-        <div id="slide4" className="carousel-item relative w-full">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.jpg"
-            className="w-full"
-          />
-          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-            <a href="#slide3" className="btn btn-circle">
-              ❮
-            </a>
-            <a href="#slide1" className="btn btn-circle">
-              ❯
-            </a>
-          </div>
-        </div>
+      ))}
+      <button
+        onClick={nextSlide}
+        className="absolute p-2 text-white transform -translate-y-1/2 bg-black bg-opacity-50 rounded-full top-1/2 right-4"
+      >
+        <ChevronRight className="w-6 h-6" />
+      </button>
+      <div className="absolute flex space-x-2 transform -translate-x-1/2 bottom-4 left-1/2">
+        {data.map((_, idx) => (
+          <button
+            key={idx}
+            className={`w-3 h-3 rounded-full ${slide === idx ? "bg-white" : "bg-gray-400"}`}
+            onClick={() => setSlide(idx)}
+          ></button>
+        ))}
       </div>
     </div>
   );
-}
+};

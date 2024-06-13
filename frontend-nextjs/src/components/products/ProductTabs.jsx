@@ -9,7 +9,7 @@ export default function ProductTabs({ tabList, tabPanel }) {
         className="flex flex-col items-center justify-center m-8"
         selectedTabClassName={"tab-active"}
       >
-        <TabList className="w-2/5 tabs tabs-boxed tabs-sm">
+        <TabList className="w-2/5 tabs tabs-bordered tabs-sm">
           {tabList.map((list, index) => (
             <Tab key={index} className="tab tab-sm">
               {list}
