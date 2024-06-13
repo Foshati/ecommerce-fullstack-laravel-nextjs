@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 
@@ -21,6 +21,14 @@ export const Carousel = () => {
     setSlide(slide === 0 ? carouselData.length - 1 : slide - 1);
   };
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 5000); // Change slide every 5 seconds
+
+    return () => clearInterval(interval); // Clean up interval on component unmount
+  }, [slide]);
+
   if (!carouselData || carouselData.length === 0) {
     return null; // Return null or a fallback UI if data is not available
   }
@@ -39,8 +47,8 @@ export const Carousel = () => {
             key={idx}
             src={item.src}
             alt={item.alt}
-            layout="fill"
-            objectFit="cover"
+            fill
+            style={{ objectFit: "cover" }}
             className={`absolute top-0 left-0 transition-opacity duration-500 ${
               slide === idx ? "opacity-100" : "opacity-0"
             }`}
