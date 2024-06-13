@@ -41,7 +41,7 @@ export const Carousel = () => {
       >
         <ChevronLeft className="w-6 h-6" />
       </button>
-      <div className="relative h-screen">
+      <div className="relative h-screen pointer-events-none">
         {carouselData.map((item, idx) => (
           <Image
             key={idx}
@@ -62,16 +62,19 @@ export const Carousel = () => {
       >
         <ChevronRight className="w-6 h-6" />
       </button>
-      <div className="absolute z-10 flex space-x-2 transform -translate-x-1/2 bottom-4 left-1/2">
-        {carouselData.map((_, idx) => (
-          <button
-            key={idx}
-            className={`w-3 h-3 rounded-full ${
-              slide === idx ? "bg-white" : "bg-gray-400"
-            }`}
-            onClick={() => setSlide(idx)}
-          ></button>
-        ))}
+      <div className="absolute z-10 flex flex-col items-center space-x-2 transform -translate-x-1/2 bottom-4 left-1/2">
+        <button className="m-6 btn btn-wide hover:bg-opacity-75 ">
+          Learn more...
+        </button>
+        <div className="flex space-x-2">
+          {carouselData.map((_, idx) => (
+            <button
+              key={idx}
+              className={`w-3 h-3 rounded-full ${slide === idx ? "bg-white" : "bg-gray-400"}`}
+              onClick={() => setSlide(idx)}
+            ></button>
+          ))}
+        </div>
       </div>
     </div>
   );
