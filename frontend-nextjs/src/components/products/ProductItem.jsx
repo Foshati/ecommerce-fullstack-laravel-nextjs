@@ -16,7 +16,7 @@ export default function ProductItem({ product }) {
           placeholder="blur"
           blurDataURL={getBlurDataUrl()}
         />
-        <div className="absolute justify-center hidden text-black bg-slate-500 bg-slat rounded-2xl lg:card-actions bottom-4 left-1/2">
+        <div className="absolute justify-center hidden text-black bg-slate-500 rounded-2xl lg:card-actions bottom-4 left-1/2">
           <p className="badge badge-sm badge-outline">{product.category}</p>
         </div>
       </figure>

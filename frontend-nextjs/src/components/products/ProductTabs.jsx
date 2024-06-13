@@ -4,7 +4,7 @@ import ProductItem from "./ProductItem";
 
 export default function ProductTabs({ tabList, tabPanel }) {
   return (
-    <>
+    <div className="mt-28">
       <Tabs
         className="flex flex-col items-center justify-center m-8"
         selectedTabClassName={"tab-active"}
@@ -31,7 +31,7 @@ export default function ProductTabs({ tabList, tabPanel }) {
           </TabPanel>
         ))}
       </Tabs>
-    </>
+    </div>
   );
 }
 

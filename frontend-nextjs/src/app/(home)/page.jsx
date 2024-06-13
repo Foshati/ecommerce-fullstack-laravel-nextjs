@@ -9,7 +9,7 @@ export default async function Page() {
   const productsTabFetch = await getFetch("/products/products-tabs");
 
   return (
-    <div>
+    <div className="bg-[#101827]">
       <Carousel />
       <ProductTabs
         tabList={productsTabFetch.tabList}
