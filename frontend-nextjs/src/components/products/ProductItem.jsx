@@ -10,12 +10,13 @@ export default function ProductItem({ product }) {
         <Image
           src={product.primary_image}
           alt={product.slug}
-          width={500}
-          height={500}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover pointer-events-none"
           placeholder="blur"
           blurDataURL={getBlurDataUrl()}
         />
+
         <div className="absolute justify-center hidden text-black bg-slate-500 rounded-2xl lg:card-actions bottom-4 left-1/2">
           <p className="badge badge-sm badge-outline">{product.category}</p>
         </div>

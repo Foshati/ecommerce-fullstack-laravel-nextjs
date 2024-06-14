@@ -48,8 +48,8 @@ export const Carousel = () => {
             src={item.src}
             alt={item.alt}
             fill
-            style={{ objectFit: "cover" }}
-            className={`absolute top-0 left-0 transition-opacity duration-500 ${
+            // style={{ objectFit: "cover" }}
+            className={`absolute object-cover top-0 left-0 transition-opacity duration-500 ${
               slide === idx ? "opacity-100" : "opacity-0"
             }`}
             priority={idx === 0} // Add priority for the first image
