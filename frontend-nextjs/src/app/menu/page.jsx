@@ -2,14 +2,19 @@ import CategoriesList from "@/src/components/menu/CategoriesList";
 import ProductList from "@/src/components/menu/ProductList";
 import { getFetch } from "@/utils/fetch";
 import { Search } from "lucide-react";
-import React from "react";
+import { Suspense } from "react";
+import Loading from "../../components/menu/Loading";
 
-export default async function MenuPage() {
+export default async function MenuPage({ searchParams }) {
   const categoriesFetch = await getFetch("/categories");
+  const params = new URLSearchParams(searchParams);
+  // console.log(searchParams, query parameters from the URL );
+  // console.log(params.toString());
   //   console.log(categoriesFetch);
+
   return (
     <div>
-      <section className="flex ">
+      <section className="flex">
         <div className="flex-col hidden gap-8 p-4 my-12 ml-8 bg-black lg:flex rounded-3xl">
           <label className="flex items-center gap-2 input input-bordered">
             <input type="text" className="grow" placeholder="Search" />
@@ -38,19 +43,10 @@ export default async function MenuPage() {
             </label>
           </div>
         </div>
-        <div className="flex flex-col items-center p-4">
-          <div>
-            <ProductList />
-          </div>
-
-          <div>
-            <div className="join">
-              <button className="join-item btn btn-sm">1</button>
-              <button className="join-item btn btn-sm btn-active">2</button>
-              <button className="join-item btn btn-sm">3</button>
-              <button className="join-item btn btn-sm">4</button>
-            </div>
-          </div>
+        <div className="flex items-center justify-center flex-grow mt-4">
+          <Suspense key={params.toString()} fallback={<Loading />}>
+            <ProductList params={params.toString()} />
+          </Suspense>
         </div>
       </section>
     </div>

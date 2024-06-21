@@ -8,10 +8,10 @@ function NavbarList() {
 
   const links = [
     { href: "/", label: "Home" },
+    { href: "/menu", label: "Menu" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
     { href: "/blog", label: "Blog" },
-    { href: "/menu", label: "menu" },
   ];
 
   return (
