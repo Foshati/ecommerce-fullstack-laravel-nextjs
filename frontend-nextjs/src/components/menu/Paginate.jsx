@@ -1,19 +1,20 @@
 "use client";
-import { usePathname } from "next/navigation";
-import { useRouter } from "next/navigation";
+import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import React from "react";
 
 export default function Paginate({ links }) {
   const router = useRouter();
   const pathName = usePathname();
+  const searchParams = useSearchParams();
   function handlePage(page) {
-    // console.log(page, pathName);
-    // console.log(`${pathName}?page=${page}`);
-    const params = new URLSearchParams();
+    const params = new URLSearchParams(searchParams);
     params.set("page", page);
-    // console.log(params.toString());
 
     router.replace(`${pathName}?${params.toString()}`);
+
+    // console.log(page, pathName);
+    // console.log(`${pathName}?page=${page}`);
+    // console.log(params.toString());
   }
 
   return (

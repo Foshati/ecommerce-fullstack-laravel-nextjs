@@ -1,25 +1,21 @@
 import CategoriesList from "@/src/components/menu/CategoriesList";
 import ProductList from "@/src/components/menu/ProductList";
 import { getFetch } from "@/utils/fetch";
-import { Search } from "lucide-react";
 import { Suspense } from "react";
 import Loading from "../../components/menu/Loading";
+import SearchMenu from "@/src/components/menu/SearchMenu";
 
 export default async function MenuPage({ searchParams }) {
   const categoriesFetch = await getFetch("/categories");
   const params = new URLSearchParams(searchParams);
-  // console.log(searchParams, query parameters from the URL );
+  // console.log(searchParams, query parameters or string from the URL );
   // console.log(params.toString());
-  //   console.log(categoriesFetch);
-
+  // console.log(categoriesFetch);
   return (
     <div>
       <section className="flex">
         <div className="flex-col hidden gap-8 p-4 my-12 ml-8 bg-black lg:flex rounded-3xl">
-          <label className="flex items-center gap-2 input input-bordered">
-            <input type="text" className="grow" placeholder="Search" />
-            <Search />
-          </label>
+          <SearchMenu />
           <CategoriesList categoriesFetch={categoriesFetch} />
 
           <div className="form-control">
