@@ -1,17 +1,23 @@
 "use client";
-import { Search } from "lucide-react";
-import { usePathname, useRouter } from "next/navigation";
+import { CircleX, Search } from "lucide-react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 
 export default function SearchMenu() {
   const [term, setTerm] = useState("");
   const router = useRouter();
   const pathName = usePathname();
+  const searchParams = useSearchParams();
 
-  function handleSearch() {
+  function handleSearch(remove) {
     const params = new URLSearchParams();
-    params.set("search", term);
-
+    if (remove) {
+      params.delete("search");
+      params.delete("page");
+      setTerm("");
+    } else {
+      params.set("search", term);
+    }
     router.replace(`${pathName}?${params.toString()}`);
 
     // console.log(term);
@@ -24,6 +30,14 @@ export default function SearchMenu() {
         htmlFor="search"
         className="flex items-center gap-2 input input-bordered"
       >
+        {searchParams.has("search") && (
+          <span
+            className="hover:text-red-500 "
+            onClick={() => handleSearch(true)}
+          >
+            <CircleX className="size-4" />
+          </span>
+        )}
         <input
           onChange={(e) => setTerm(e.target.value)}
           value={term}
