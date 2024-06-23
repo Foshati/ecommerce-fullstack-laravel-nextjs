@@ -4,6 +4,7 @@ import { getFetch } from "@/utils/fetch";
 import { Suspense } from "react";
 import Loading from "../../components/menu/Loading";
 import SearchMenu from "@/src/components/menu/SearchMenu";
+import Sort from "@/src/components/menu/Sort";
 
 export default async function MenuPage({ searchParams }) {
   const categoriesFetch = await getFetch("/categories");
@@ -18,26 +19,7 @@ export default async function MenuPage({ searchParams }) {
           <SearchMenu />
           <CategoriesList categoriesFetch={categoriesFetch} />
 
-          <div className="form-control">
-            <label className="cursor-pointer label">
-              <span className="label-text">Red pill</span>
-              <input
-                type="radio"
-                name="radio-10"
-                className="radio checked:bg-red-500"
-              />
-            </label>
-          </div>
-          <div className="form-control">
-            <label className="cursor-pointer label">
-              <span className="label-text">Blue pill</span>
-              <input
-                type="radio"
-                name="radio-10"
-                className="radio checked:bg-blue-500"
-              />
-            </label>
-          </div>
+          <Sort />
         </div>
         <div className="flex items-center justify-center flex-grow mt-4">
           <Suspense key={params.toString()} fallback={<Loading />}>
