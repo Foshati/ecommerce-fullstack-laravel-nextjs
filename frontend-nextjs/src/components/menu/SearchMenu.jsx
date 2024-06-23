@@ -10,10 +10,11 @@ export default function SearchMenu() {
   const searchParams = useSearchParams();
 
   function handleSearch(remove) {
-    const params = new URLSearchParams();
+    const params = new URLSearchParams(searchParams);
+    params.delete("page");
+
     if (remove) {
       params.delete("search");
-      params.delete("page");
       setTerm("");
     } else {
       params.set("search", term);
