@@ -2,6 +2,7 @@ import { getBlurDataUrl, numberFormat } from "@/utils/helpers";
 import { ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import CustomButton from "../button/button/Button";
 
 export default function ProductItem({ product }) {
   return (
@@ -21,11 +22,12 @@ export default function ProductItem({ product }) {
           <p className="badge badge-sm badge-outline">{product.category}</p>
         </div>
       </figure>
-      <div className="p-2 card-body">
+      {/* add min-h-[160px] for fix height product cart */}
+      <div className="flex flex-col justify-between p-2 card-body min-h-[160px]">
         <Link href={`/products/${product.slug}`}>
           <h2 className="text-sm card-title">{product.name}</h2>
         </Link>
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center space-x-3 ">
           <h3 className="text-xs">{product.description}</h3>
 
           <span>
@@ -44,20 +46,7 @@ export default function ProductItem({ product }) {
           </span>
         </div>
         {/* Button */}
-        <Link
-          href={`/product/${product.slug}`}
-          className="relative inline-flex items-center justify-center p-2 px-4 py-2 mt-2 overflow-hidden font-medium text-indigo-600 rounded-lg shadow-2xl group"
-        >
-          <span className="absolute top-0 left-0 w-32 h-32 -mt-10 -ml-3 transition-all duration-700 bg-red-500 rounded-full blur-md ease" />
-          <span className="absolute inset-0 w-full h-full transition duration-700 group-hover:rotate-180 ease">
-            <span className="absolute bottom-0 left-0 w-20 h-20 -ml-10 bg-purple-500 rounded-full blur-md" />
-            <span className="absolute bottom-0 right-0 w-20 h-20 -mr-10 bg-pink-500 rounded-full blur-md" />
-          </span>
-          <span className="relative flex space-x-4 text-white">
-            <ShoppingCart />
-            <p className="hidden group-hover:flex">buy</p>
-          </span>
-        </Link>
+        <CustomButton href={`/product/${product.slug}`} text="buy" />
       </div>
     </div>
   );

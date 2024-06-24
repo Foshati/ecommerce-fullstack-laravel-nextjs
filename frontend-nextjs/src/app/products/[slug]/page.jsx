@@ -3,6 +3,8 @@ import { numberFormat, salePercent } from "@/utils/helpers";
 import React from "react";
 import ProductSlider from "../../../components/layout/carousel/ProductSlider";
 import Rating from "@/src/components/products/Rating";
+import CustomButton from "@/src/components/button/button/Button";
+import { Heart } from "lucide-react";
 
 export default async function ProductPage({ params }) {
   const product = await getFetch(`/products/${decodeURI(params.slug)}`);
@@ -61,22 +63,12 @@ export default async function ProductPage({ params }) {
                       </span>
                     )}
                   </span>
+
+                  <CustomButton href={`/product/${product.slug}`} text="buy" />
+                  <button className="inline-flex items-center justify-center w-10 h-10 p-0 mt-2 ml-4 text-gray-500 bg-gray-800 border-0 rounded-full">
+                    <Heart />
+                  </button>
                 </div>
-                <button className="flex px-6 py-2 ml-auto text-white bg-indigo-500 border-0 rounded focus:outline-none hover:bg-indigo-600">
-                  Button
-                </button>
-                <button className="inline-flex items-center justify-center w-10 h-10 p-0 ml-4 text-gray-500 bg-gray-800 border-0 rounded-full">
-                  <svg
-                    fill="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    className="w-5 h-5"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
-                  </svg>
-                </button>
               </div>
             </div>
           </div>
