@@ -22,7 +22,9 @@ export default function ProductItem({ product }) {
         </div>
       </figure>
       <div className="p-2 card-body">
-        <h2 className="text-sm card-title">{product.name}</h2>
+        <Link href={`/products/${product.slug}`}>
+          <h2 className="text-sm card-title">{product.name}</h2>
+        </Link>
         <div className="flex items-center space-x-3">
           <h3 className="text-xs">{product.description}</h3>
 
