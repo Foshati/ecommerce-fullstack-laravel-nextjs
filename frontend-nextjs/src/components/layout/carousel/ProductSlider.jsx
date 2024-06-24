@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { getBlurDataUrl } from "@/utils/helpers";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const ProductSlider = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -47,15 +48,15 @@ const ProductSlider = ({ images }) => {
       <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-2/5">
         <button
           onClick={goToPrevious}
-          className="btn btn-circle btn-neutral btn-sm"
+          className="bg-black bg-opacity-50 btn btn-circle btn-sm hover:bg-opacity-90"
         >
-          ❮
+          <ChevronLeft />
         </button>
         <button
           onClick={goToNext}
-          className="btn btn-circle btn-neutral btn-sm"
+          className="bg-black bg-opacity-50 btn btn-circle btn-sm opa hover:bg-opacity-90"
         >
-          ❯
+          <ChevronRight />
         </button>
       </div>
       <div className="flex justify-center mt-4">
@@ -64,7 +65,7 @@ const ProductSlider = ({ images }) => {
             key={index}
             onClick={() => goToIndex(index)}
             className={`mx-1 p-1 border ${
-              currentIndex === index ? "border-red-500" : "border-gray-500"
+              currentIndex === index ? "border-red-500" : "border-gray-500 "
             } rounded`}
           >
             <Image

@@ -5,12 +5,16 @@ import ProductSlider from "../../../components/layout/carousel/ProductSlider";
 import Rating from "@/src/components/products/Rating";
 import CustomButton from "@/src/components/button/button/Button";
 import { Heart } from "lucide-react";
+import ProductItem from "@/src/components/products/ProductItem";
 
-export default async function ProductPage({ params }) {
+export default async function singleProductPage({ params }) {
   const product = await getFetch(`/products/${decodeURI(params.slug)}`);
   // console.log(decodeURI(params.slug));
   // ex url : /products/پیتزا-رست-بیف
   // console.log(product); pass
+
+  const randomProduct = await getFetch("/random-products?count=4");
+  // console.log(randomProduct);
 
   const allImages = [
     product.primary_image,
@@ -73,6 +77,17 @@ export default async function ProductPage({ params }) {
             </div>
           </div>
         </div>
+      </section>
+      <div className="flex items-center pb-5 mt-6 mb-5 border-b-2 border-gray-800"></div>
+      <section className="grid grid-cols-1 gap-4 m-6 lg:grid-cols-4 sm:grid-cols-2">
+        {randomProduct.map((product, index) => (
+          <div
+            key={index}
+            className={`block ${index >= 2 ? "lg:block hidden" : ""}`}
+          >
+            <ProductItem product={product} />
+          </div>
+        ))}
       </section>
     </div>
   );
