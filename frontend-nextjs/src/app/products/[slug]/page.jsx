@@ -6,6 +6,9 @@ import Rating from "@/src/components/products/Rating";
 
 export default async function ProductPage({ params }) {
   const product = await getFetch(`/products/${decodeURI(params.slug)}`);
+  // console.log(decodeURI(params.slug));
+  // ex url : /products/پیتزا-رست-بیف
+  // console.log(product); pass
 
   const allImages = [
     product.primary_image,

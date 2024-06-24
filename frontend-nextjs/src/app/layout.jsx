@@ -16,7 +16,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={lexend.className}>
+      <body className={`${lexend.className} bg-[#101827]`}>
         <NextNprogress>
           <main className="flex flex-col min-h-screen">
             <Header />

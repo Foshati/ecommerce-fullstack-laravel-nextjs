@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { getBlurDataUrl } from "@/utils/helpers";
 
@@ -20,20 +20,28 @@ const ProductSlider = ({ images }) => {
 
   return (
     <div className="relative w-full max-w-md">
-      <Image
-        src={images[currentIndex]}
-        placeholder="blur"
-        blurDataURL={getBlurDataUrl()}
-        width={464}
-        height={309}
-        className="w-full"
-        alt={`product-image-${currentIndex}`}
-      />
+      <figure>
+        <Image
+          src={images[currentIndex]}
+          placeholder="blur"
+          blurDataURL={getBlurDataUrl()}
+          width={460}
+          height={310}
+          className="w-full rounded-xl cursor-none"
+          alt={`product-image-${currentIndex}`}
+        />
+      </figure>
       <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-        <button onClick={goToPrevious} className="btn btn-circle">
+        <button
+          onClick={goToPrevious}
+          className="btn btn-circle btn-neutral btn-sm"
+        >
           ❮
         </button>
-        <button onClick={goToNext} className="btn btn-circle">
+        <button
+          onClick={goToNext}
+          className="btn btn-circle btn-neutral btn-sm"
+        >
           ❯
         </button>
       </div>
