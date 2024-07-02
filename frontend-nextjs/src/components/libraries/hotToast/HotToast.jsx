@@ -1,26 +1,26 @@
-"use client";
+'use client';
 
-import React from "react";
-import { Toaster } from "react-hot-toast";
+import React from 'react';
+import {Toaster} from 'react-hot-toast';
 
 export default function HotToast() {
   return (
     <div>
       <Toaster
-        position="bottom-right"
+        position='bottom-center'
         reverseOrder={false}
         toastOptions={{
           // Customize toast styles here
           style: {
-            border: "1px solid black",
-            padding: "12px",
-            color: "black",
+            border: '1px solid black',
+            padding: '12px',
+            color: 'black',
           },
           success: {
-            duration: 5000,
+            duration: 3000,
             theme: {
-              primary: "green",
-              secondary: "black",
+              primary: 'green',
+              secondary: 'black',
             },
           },
         }}

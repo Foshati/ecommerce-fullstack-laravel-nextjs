@@ -3,6 +3,7 @@
 import React from "react";
 import { Menu, Utensils } from "lucide-react";
 import NavbarList from "./NavbarList"; // Import the NavbarList component
+import Link from "next/link";
 
 function Header() {
   return (
@@ -34,7 +35,9 @@ function Header() {
               className="w-24 input input-bordered md:w-auto"
             />
           </div>
-          <a className="btn">Sign in</a>
+          <Link href="/auth/login" className="btn ">
+            Log in
+          </Link>
         </div>
       </div>
     </header>
