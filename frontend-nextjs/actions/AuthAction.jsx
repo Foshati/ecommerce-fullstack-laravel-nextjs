@@ -4,7 +4,7 @@ import {postFetch} from '@/utils/fetch';
 import {handleError} from '@/utils/helpers';
 import {cookies} from 'next/headers';
 
-async function formAuthActionLogin(stateLogin, formData) {
+async function AuthActionLogin(stateLogin, formData) {
   const cellphone = formData.get('cellphone');
 
   if (cellphone === '') {
@@ -43,7 +43,7 @@ async function formAuthActionLogin(stateLogin, formData) {
   }
 }
 
-async function formAuthActionOtp(stateOtp, formData) {
+async function AuthActionOtp(stateOtp, formData) {
   const otp = formData.get('otp');
 
   if (otp === '') {
@@ -94,4 +94,4 @@ async function formAuthActionOtp(stateOtp, formData) {
   }
 }
 
-export {formAuthActionLogin, formAuthActionOtp};
+export {AuthActionLogin, AuthActionOtp};

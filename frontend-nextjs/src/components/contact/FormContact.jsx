@@ -5,12 +5,12 @@ import {useEffect, useRef} from 'react';
 import {toast} from 'sonner';
 import {useFormState} from 'react-dom';
 
-import {FormContactAction} from '@/actions/FormContactAction';
+import {ContactAction} from '@/actions/ContactAction';
 
 import SubmitButton from '../button/submitButton/SubmitButton';
 
 export default function FormContact() {
-  const [state, formAction] = useFormState(FormContactAction, {});
+  const [state, formAction] = useFormState(ContactAction, {});
   const formRef = useRef(null);
 
   useEffect(() => {

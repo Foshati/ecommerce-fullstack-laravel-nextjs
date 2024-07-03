@@ -5,10 +5,10 @@ import {useFormState} from 'react-dom';
 import {Phone} from 'lucide-react';
 import {toast} from 'sonner';
 import SubButton from '../button/submitButton/SubmitButton';
-import {formAuthActionLogin} from '@/actions/FormAuthAction';
+import {AuthActionLogin} from '@/actions/AuthAction';
 
 export default function LoginForm({setStep}) {
-  const [stateLogin, formActionLogin] = useFormState(formAuthActionLogin, {});
+  const [stateLogin, formActionLogin] = useFormState(AuthActionLogin, {});
 
   useEffect(() => {
     if (stateLogin?.message && stateLogin?.status) {

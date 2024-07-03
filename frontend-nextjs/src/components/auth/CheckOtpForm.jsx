@@ -4,13 +4,12 @@ import {toast} from 'sonner';
 
 import {useFormState} from 'react-dom';
 
-import {formAuthActionOtp} from '@/actions/FormAuthAction';
-
 import SubButton from '../button/submitButton/SubmitButton';
 import {AuthContext} from '@/context/AuthContext';
+import {AuthActionOtp} from '@/actions/AuthAction';
 
 export default function CheckOtpForm() {
-  const [stateOtp, formActionOtp] = useFormState(formAuthActionOtp, {});
+  const [stateOtp, formActionOtp] = useFormState(AuthActionOtp, {});
   const {loginContext} = useContext(AuthContext);
 
   useEffect(() => {
