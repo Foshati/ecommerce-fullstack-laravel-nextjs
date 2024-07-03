@@ -1,16 +1,24 @@
 'use client';
-import React, {useState, useRef, useEffect} from 'react';
-import SubButton from '../button/submitButton/SubmitButton';
+import {useEffect, useRef, useState, useContext} from 'react';
+
 import toast from 'react-hot-toast';
-import {formAuthActionOtp} from '@/actions/FormAuthAction';
 import {useFormState} from 'react-dom';
+
+import {formAuthActionOtp} from '@/actions/FormAuthAction';
+
+import SubButton from '../button/submitButton/SubmitButton';
+import {AuthContext} from '@/context/AuthContext';
 
 export default function CheckOtpForm() {
   const [stateOtp, formActionOtp] = useFormState(formAuthActionOtp, {});
+  const {loginContext} = useContext(AuthContext);
 
   useEffect(() => {
     if (stateOtp?.message) {
       toast(stateOtp.status, {message: stateOtp.message});
+      if (stateOtp?.status == 'success') {
+        loginContext(stateOtp.user);
+      }
     }
   }, [stateOtp]);
 
