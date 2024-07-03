@@ -1,7 +1,7 @@
 'use client';
 import {useEffect, useRef, useState, useContext} from 'react';
+import {toast} from 'sonner';
 
-import toast from 'react-hot-toast';
 import {useFormState} from 'react-dom';
 
 import {formAuthActionOtp} from '@/actions/FormAuthAction';
@@ -14,9 +14,9 @@ export default function CheckOtpForm() {
   const {loginContext} = useContext(AuthContext);
 
   useEffect(() => {
-    if (stateOtp?.message) {
-      toast(stateOtp.status, {message: stateOtp.message});
-      if (stateOtp?.status == 'success') {
+    if (stateOtp?.message && stateOtp?.status) {
+      toast(stateOtp.message, {type: stateOtp.status});
+      if (stateOtp.status === 'success' && stateOtp.user) {
         loginContext(stateOtp.user);
       }
     }

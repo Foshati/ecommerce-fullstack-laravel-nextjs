@@ -3,7 +3,7 @@
 import {useEffect} from 'react';
 import {useFormState} from 'react-dom';
 import {Phone} from 'lucide-react';
-import toast from 'react-hot-toast';
+import {toast} from 'sonner';
 import SubButton from '../button/submitButton/SubmitButton';
 import {formAuthActionLogin} from '@/actions/FormAuthAction';
 
@@ -11,9 +11,11 @@ export default function LoginForm({setStep}) {
   const [stateLogin, formActionLogin] = useFormState(formAuthActionLogin, {});
 
   useEffect(() => {
-    toast(stateLogin?.message, {type: `${stateLogin?.status}`});
-    if (stateLogin?.status == 'success') {
-      setStep(2);
+    if (stateLogin?.message && stateLogin?.status) {
+      toast(stateLogin.message, {type: stateLogin.status});
+      if (stateLogin.status === 'success') {
+        setStep(2);
+      }
     }
   }, [stateLogin]);
 

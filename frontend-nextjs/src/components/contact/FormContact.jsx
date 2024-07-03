@@ -2,9 +2,9 @@
 
 import {useFormState} from 'react-dom';
 import SubmitButton from '../button/submitButton/SubmitButton';
-import {toast} from 'react-hot-toast';
 import {useEffect} from 'react';
 import {FormContactAction} from '@/actions/FormContactAction';
+import {Toaster} from 'sonner';
 
 export default function FormContact() {
   const [state, formAction] = useFormState(FormContactAction, {});
@@ -18,7 +18,9 @@ export default function FormContact() {
   // }, [state]);
 
   useEffect(() => {
-    toast(state?.message, {type: `${state?.status}`});
+    if (state?.message && state?.status) {
+      Toaster(state.message, {type: state.status});
+    }
   }, [state]);
 
   return (

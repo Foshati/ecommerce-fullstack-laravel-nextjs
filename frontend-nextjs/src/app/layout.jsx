@@ -1,11 +1,14 @@
+// /Users/fa/Desktop/Projectfa/FullStack/ecommerce-fullstack-laravel-nextjs/frontend-nextjs/src/app/layout.jsx
+
 import {Lexend} from 'next/font/google';
-import './globals.css';
+import {AuthProvider} from '@/context/AuthContext';
 
 import Footer from '../components/layout/footer/Footer';
 import Header from '../components/layout/header/Header';
-import HotToast from '../components/libraries/hotToast/HotToast';
+import SonnerToast from '../components/libraries/sonnerToast/SonnerToast';
 import NextNprogress from '../components/libraries/nextNprogress/NextNprogress';
-import {AuthProvider} from '@/context/AuthContext';
+
+import './globals.css';
 
 const lexend = Lexend({subsets: ['latin']});
 
@@ -23,8 +26,7 @@ export default function RootLayout({children}) {
             <main className='flex flex-col min-h-screen'>
               <Header />
               <div className='flex-1'>
-                {children}
-                <HotToast />
+                {children} <SonnerToast />
               </div>
               <Footer />
             </main>
