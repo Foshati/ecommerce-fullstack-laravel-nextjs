@@ -1,27 +1,27 @@
-"use server";
+'use server';
 
-import { postFetch } from "@/utils/fetch";
-import { handleError } from "@/utils/helpers";
+import {postFetch} from '@/utils/fetch';
+import {handleError} from '@/utils/helpers';
 
 async function FormContactAction(state, formData) {
-  const name = formData.get("name");
-  const email = formData.get("email");
-  const subject = formData.get("subject");
-  const text = formData.get("text");
+  const name = formData.get('name');
+  const email = formData.get('email');
+  const subject = formData.get('subject');
+  const text = formData.get('text');
 
-  if (name === "" || email === "" || subject === "" || text === "") {
+  if (name === '' || email === '' || subject === '' || text === '') {
     return {
-      status: "error",
-      message: "All items in our contact form are required",
+      status: 'error',
+      message: 'All items in our contact form are required',
     };
   }
 
-  const data = await postFetch("/contact-us", { name, email, subject, text });
+  const data = await postFetch('/contact-us', {name, email, subject, text});
 
-  if (data.status === "error") {
+  if (data.status === 'success') {
     return {
       status: data.status,
-      message: "Your message was successfully registered",
+      message: 'Your message was successfully registered',
     };
   } else {
     return {
@@ -31,4 +31,4 @@ async function FormContactAction(state, formData) {
   }
 }
 
-export { FormContactAction };
+export {FormContactAction};

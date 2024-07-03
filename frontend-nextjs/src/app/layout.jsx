@@ -5,10 +5,10 @@ import {AuthProvider} from '@/context/AuthContext';
 
 import Footer from '../components/layout/footer/Footer';
 import Header from '../components/layout/header/Header';
-import SonnerToast from '../components/libraries/sonnerToast/SonnerToast';
 import NextNprogress from '../components/libraries/nextNprogress/NextNprogress';
 
 import './globals.css';
+import SonnerToast from '../components/libraries/sonnerToast/SonnerToast';
 
 const lexend = Lexend({subsets: ['latin']});
 

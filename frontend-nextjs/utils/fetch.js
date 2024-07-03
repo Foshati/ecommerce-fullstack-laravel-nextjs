@@ -1,9 +1,9 @@
 const getFetch = async (url) => {
   const res = await fetch(`http://localhost:8000/api${url}`, {
-    cache: "no-store",
+    cache: 'no-store',
     headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
     },
   });
 
@@ -17,11 +17,11 @@ const getFetch = async (url) => {
 
 const postFetch = async (url, body) => {
   const res = await fetch(`http://localhost:8000/api${url}`, {
-    method: "POST",
-    cache: "no-store",
+    method: 'POST',
+    cache: 'no-store',
     headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
     },
     body: JSON.stringify(body),
   });
@@ -29,4 +29,4 @@ const postFetch = async (url, body) => {
   return await res.json();
 };
 
-export { getFetch, postFetch };
+export {getFetch, postFetch};
