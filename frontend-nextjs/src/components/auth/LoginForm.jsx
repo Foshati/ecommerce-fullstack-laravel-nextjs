@@ -1,11 +1,14 @@
 'use client';
 
 import {useEffect} from 'react';
-import {useFormState} from 'react-dom';
-import {Phone} from 'lucide-react';
+
 import {toast} from 'sonner';
+import {Phone} from 'lucide-react';
+import {useFormState} from 'react-dom';
+
+import {AuthActionLogin} from '@/src/actions/AuthAction';
+
 import SubButton from '../button/submitButton/SubmitButton';
-import {AuthActionLogin} from '@/actions/AuthAction';
 
 export default function LoginForm({setStep}) {
   const [stateLogin, formActionLogin] = useFormState(AuthActionLogin, {});

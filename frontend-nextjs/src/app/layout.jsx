@@ -1,14 +1,12 @@
-// /Users/fa/Desktop/Projectfa/FullStack/ecommerce-fullstack-laravel-nextjs/frontend-nextjs/src/app/layout.jsx
-
 import {Lexend} from 'next/font/google';
-import {AuthProvider} from '@/context/AuthContext';
+import {AuthProvider} from '@/src/context/AuthContext';
 
-import Footer from '../components/layout/footer/Footer';
 import Header from '../components/layout/header/Header';
+import Footer from '../components/layout/footer/Footer';
+import SonnerToast from '../components/libraries/sonnerToast/SonnerToast';
 import NextNprogress from '../components/libraries/nextNprogress/NextNprogress';
 
 import './globals.css';
-import SonnerToast from '../components/libraries/sonnerToast/SonnerToast';
 
 const lexend = Lexend({subsets: ['latin']});
 

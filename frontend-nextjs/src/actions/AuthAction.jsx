@@ -1,8 +1,8 @@
 'use server';
 
-import {postFetch} from '@/utils/fetch';
-import {handleError} from '@/utils/helpers';
 import {cookies} from 'next/headers';
+import {postFetch} from '../utils/fetch';
+import {handleError} from '../utils/helpers';
 
 async function AuthActionLogin(stateLogin, formData) {
   const cellphone = formData.get('cellphone');
@@ -94,4 +94,25 @@ async function AuthActionOtp(stateOtp, formData) {
   }
 }
 
-export {AuthActionLogin, AuthActionOtp};
+async function AuthActionMe() {
+  const token = cookies().get('token');
+
+  if (!token) {
+    return {
+      error: 'You are not logged in' /* Not Authorized */,
+    };
+  }
+  // Authorization: `Bearer ${token.value}`
+  const data = await postFetch('/auth/me', {}, {Authorization: `Bearer ${token.value}`});
+  if (data.status === 'success') {
+    return {
+      user: data.data,
+    };
+  } else {
+    return {
+      error: 'User Forbidden',
+    };
+  }
+}
+
+export {AuthActionLogin, AuthActionOtp, AuthActionMe};

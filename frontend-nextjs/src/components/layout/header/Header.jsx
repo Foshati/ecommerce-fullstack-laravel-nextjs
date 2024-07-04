@@ -4,7 +4,7 @@ import {useContext} from 'react';
 import {Menu, Utensils} from 'lucide-react';
 
 import Link from 'next/link';
-import {AuthContext} from '@/context/AuthContext';
+import {AuthContext} from '@/src/context/AuthContext';
 
 import NavbarList from './NavbarList';
 

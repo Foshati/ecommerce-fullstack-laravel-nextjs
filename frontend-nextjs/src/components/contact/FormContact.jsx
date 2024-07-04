@@ -5,9 +5,8 @@ import {useEffect, useRef} from 'react';
 import {toast} from 'sonner';
 import {useFormState} from 'react-dom';
 
-import {ContactAction} from '@/actions/ContactAction';
-
 import SubmitButton from '../button/submitButton/SubmitButton';
+import {ContactAction} from '@/src/actions/ContactAction';
 
 export default function FormContact() {
   const [state, formAction] = useFormState(ContactAction, {});

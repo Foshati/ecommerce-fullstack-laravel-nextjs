@@ -1,7 +1,7 @@
 'use server';
 
-import {postFetch} from '@/utils/fetch';
-import {handleError} from '@/utils/helpers';
+import {postFetch} from '../utils/fetch';
+import {handleError} from '../utils/helpers';
 
 async function ContactAction(state, formData) {
   const name = formData.get('name');
