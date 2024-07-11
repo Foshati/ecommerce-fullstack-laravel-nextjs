@@ -36,7 +36,7 @@ function Header() {
             />
           </div>
           {user ? (
-            <Link href='/auth/login' className='btn '>
+            <Link href='/profile' className='btn '>
               profile
             </Link>
           ) : (

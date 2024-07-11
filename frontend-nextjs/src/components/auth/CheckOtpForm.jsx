@@ -1,9 +1,7 @@
 'use client';
 import {useEffect, useRef, useState, useContext} from 'react';
 import {toast} from 'sonner';
-
 import {useFormState} from 'react-dom';
-
 import SubButton from '../button/submitButton/SubmitButton';
 import {AuthActionOtp} from '@/src/actions/AuthAction';
 import {AuthContext} from '@/src/context/AuthContext';
@@ -30,6 +28,9 @@ export default function CheckOtpForm() {
   const [otpString, setOtpString] = useState('');
   const inputsRef = useRef([]);
 
+  // New state to track if the form is valid (all OTP digits filled)
+  const [isFormValid, setIsFormValid] = useState(false);
+
   const handleChange = (element, index) => {
     if (isNaN(element.value)) return; // Only allow numeric input
 
@@ -39,6 +40,9 @@ export default function CheckOtpForm() {
 
     const newOtpString = newOtp.join('');
     setOtpString(newOtpString);
+
+    // Check if all OTP digits are filled
+    setIsFormValid(newOtpString.length === 6);
 
     // Focus the next input
     if (element.value !== '' && index < 5) {
@@ -77,7 +81,7 @@ export default function CheckOtpForm() {
           </div>
           <input type='hidden' name='otp' value={otpString} />
           <div className='flex justify-center mt-8'>
-            <SubButton title='Submit' style='btn btn-wide' />
+            <SubButton title='Submit' style='btn btn-wide' isFormValid={isFormValid} />
           </div>
         </form>
         <ResendOtp />

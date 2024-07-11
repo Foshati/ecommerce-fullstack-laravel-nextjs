@@ -1,22 +1,16 @@
-"use client";
-import { useFormStatus } from "react-dom";
+'use client';
 
-export default function SubButton({ title, style }) {
-  const { pending } = useFormStatus();
+import {useFormStatus} from 'react-dom';
+
+export default function SubmitButton({title, style, isFormValid}) {
+  const {pending} = useFormStatus();
+
   return (
-    <div>
-      {/* methods 1 */}
-      <button className={style} disabled={pending}>
-        {pending ? (
-          <span className="loading loading-dots loading-sm"></span>
-        ) : (
-          title
-        )}
-      </button>
-    </div>
+    <button className={style} disabled={pending || !isFormValid} type='submit'>
+      {pending ? <span className='loading loading-dots loading-sm'></span> : title}
+    </button>
   );
 }
-
 //! Other methods 2
 {
   /* <button className="btn btn-wide" disabled={pending}>

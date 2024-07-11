@@ -8,16 +8,16 @@ import {AuthActionResendOtp} from '@/src/actions/AuthAction';
 export default function ResendOtp() {
   const [stateResendOtp, formActionResendOtp] = useFormState(AuthActionResendOtp, {});
 
-  const [minutes, setMinutes] = useState(1);
-  const [seconds, setSeconds] = useState(30);
+  const [minutes, setMinutes] = useState(0);
+  const [seconds, setSeconds] = useState(15);
 
   useEffect(() => {
     if (stateResendOtp?.message && stateResendOtp?.status) {
       toast(stateResendOtp.message, {type: stateResendOtp.status});
     }
     if (stateResendOtp?.status === 'success') {
-      setMinutes(1);
-      setSeconds(30);
+      setMinutes(0);
+      setSeconds(15);
     }
   }, [stateResendOtp]);
 
@@ -41,7 +41,7 @@ export default function ResendOtp() {
     return () => {
       clearInterval(interval);
     };
-  }, [seconds]);
+  }, [seconds, minutes]);
 
   return (
     <div className='flex flex-row items-center justify-center p-2 mt-4 space-x-1 text-sm font-medium text-center text-gray-500'>
@@ -57,6 +57,7 @@ export default function ResendOtp() {
           <SubButton
             title='Resend'
             style='flex flex-row items-center text-blue-600 hover:text-red-500'
+            isFormValid={true}
           />
         </form>
       )}

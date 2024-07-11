@@ -1,17 +1,16 @@
 'use client';
 
-import {useEffect} from 'react';
-
+import {useEffect, useState} from 'react';
 import {toast} from 'sonner';
 import {Phone} from 'lucide-react';
 import {useFormState} from 'react-dom';
 
 import {AuthActionLogin} from '@/src/actions/AuthAction';
-
-import SubButton from '../button/submitButton/SubmitButton';
+import SubmitButton from '../button/submitButton/SubmitButton';
 
 export default function LoginForm({setStep}) {
   const [stateLogin, formActionLogin] = useFormState(AuthActionLogin, {});
+  const [isFormValid, setIsFormValid] = useState(false);
 
   useEffect(() => {
     if (stateLogin?.message && stateLogin?.status) {
@@ -20,7 +19,11 @@ export default function LoginForm({setStep}) {
         setStep(2);
       }
     }
-  }, [stateLogin]);
+  }, [stateLogin, setStep]);
+
+  const handlePhoneChange = (e) => {
+    setIsFormValid(e.target.value.trim() !== '');
+  };
 
   return (
     <div>
@@ -30,7 +33,7 @@ export default function LoginForm({setStep}) {
             <div className='flex flex-col w-full max-w-md mx-auto space-y-14'>
               <div className='flex flex-col items-center justify-center space-y-2 text-center'>
                 <div className='text-3xl font-semibold'>
-                  <p>phone Verification</p>
+                  <p>Phone Verification</p>
                 </div>
                 <div className='flex flex-row text-sm font-medium text-gray-400'>
                   <p>Enter your mobile number</p>
@@ -50,12 +53,17 @@ export default function LoginForm({setStep}) {
                           className='grow'
                           placeholder='Phone Number'
                           name='cellphone'
+                          onChange={handlePhoneChange}
                         />
                       </label>
                     </div>
                     <div className='flex flex-col space-y-5 '>
                       <div className='flex justify-center'>
-                        <SubButton title='login' style='btn btn-wide  btn-neutral  ' />
+                        <SubmitButton
+                          title='Login'
+                          style='btn btn-wide btn-neutral'
+                          isFormValid={isFormValid}
+                        />
                       </div>
                     </div>
                   </div>
