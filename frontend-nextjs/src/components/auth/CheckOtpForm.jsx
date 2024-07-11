@@ -7,6 +7,7 @@ import {useFormState} from 'react-dom';
 import SubButton from '../button/submitButton/SubmitButton';
 import {AuthActionOtp} from '@/src/actions/AuthAction';
 import {AuthContext} from '@/src/context/AuthContext';
+import ResendOtp from './ResendOtp';
 
 export default function CheckOtpForm() {
   const [stateOtp, formActionOtp] = useFormState(AuthActionOtp, {});
@@ -75,17 +76,8 @@ export default function CheckOtpForm() {
           <div className='flex justify-center mt-8'>
             <SubButton title='Submit' style='btn btn-wide' />
           </div>
-          <div className='flex flex-row items-center justify-center p-2 mt-4 space-x-1 text-sm font-medium text-center text-gray-500'>
-            <p>Didn't receive the code?</p>
-            <a
-              className='flex flex-row items-center text-blue-600'
-              href='#'
-              onClick={() => alert('Code resent')}
-              rel='noopener noreferrer'>
-              Resend
-            </a>
-          </div>
         </form>
+        <ResendOtp />
       </div>
     </div>
   );
