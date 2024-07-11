@@ -8,16 +8,19 @@ import SubButton from '../button/submitButton/SubmitButton';
 import {AuthActionOtp} from '@/src/actions/AuthAction';
 import {AuthContext} from '@/src/context/AuthContext';
 import ResendOtp from './ResendOtp';
+import {useRouter} from 'next/navigation';
 
 export default function CheckOtpForm() {
   const [stateOtp, formActionOtp] = useFormState(AuthActionOtp, {});
   const {loginContext} = useContext(AuthContext);
+  const router = useRouter();
 
   useEffect(() => {
     if (stateOtp?.message && stateOtp?.status) {
       toast(stateOtp.message, {type: stateOtp.status});
       if (stateOtp.status === 'success' && stateOtp.user) {
         loginContext(stateOtp.user);
+        router.push('/');
       }
     }
   }, [stateOtp]);
