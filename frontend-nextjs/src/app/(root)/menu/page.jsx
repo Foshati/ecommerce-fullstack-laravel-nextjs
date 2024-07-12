@@ -14,7 +14,7 @@ export default async function MenuPage({searchParams}) {
   // console.log(params.toString());
   // console.log(categoriesFetch);
   return (
-    <div>
+    <div className=''>
       <section className='flex'>
         <div className='flex-col hidden gap-8 p-4 my-12 ml-8 bg-black lg:flex rounded-3xl'>
           <SearchMenu />

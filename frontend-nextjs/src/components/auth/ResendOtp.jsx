@@ -8,16 +8,16 @@ import {AuthActionResendOtp} from '@/src/actions/AuthAction';
 export default function ResendOtp() {
   const [stateResendOtp, formActionResendOtp] = useFormState(AuthActionResendOtp, {});
 
-  const [minutes, setMinutes] = useState(0);
-  const [seconds, setSeconds] = useState(15);
+  const [minutes, setMinutes] = useState(1);
+  const [seconds, setSeconds] = useState(30);
 
   useEffect(() => {
     if (stateResendOtp?.message && stateResendOtp?.status) {
       toast(stateResendOtp.message, {type: stateResendOtp.status});
     }
     if (stateResendOtp?.status === 'success') {
-      setMinutes(0);
-      setSeconds(15);
+      setMinutes(1);
+      setSeconds(30);
     }
   }, [stateResendOtp]);
 

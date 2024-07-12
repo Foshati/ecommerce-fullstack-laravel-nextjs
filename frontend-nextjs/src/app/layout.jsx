@@ -1,8 +1,6 @@
 import {Lexend} from 'next/font/google';
 import {AuthProvider} from '@/src/context/AuthContext';
 
-import Header from '../components/layout/header/Header';
-import Footer from '../components/layout/footer/Footer';
 import SonnerToast from '../components/libraries/sonnerToast/SonnerToast';
 import NextNprogress from '../components/libraries/nextNprogress/NextNprogress';
 
@@ -22,11 +20,9 @@ export default function RootLayout({children}) {
         <AuthProvider>
           <NextNprogress>
             <main className='flex flex-col min-h-screen'>
-              <Header />
               <div className='flex-1'>
                 {children} <SonnerToast />
               </div>
-              <Footer />
             </main>
           </NextNprogress>
         </AuthProvider>

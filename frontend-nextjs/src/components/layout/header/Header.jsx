@@ -1,7 +1,7 @@
 'use client';
 import {useContext} from 'react';
 
-import {Menu, Utensils} from 'lucide-react';
+import {Fingerprint, Menu, UserRound, Utensils} from 'lucide-react';
 
 import Link from 'next/link';
 import {AuthContext} from '@/src/context/AuthContext';
@@ -36,12 +36,12 @@ function Header() {
             />
           </div>
           {user ? (
-            <Link href='/profile' className='btn '>
-              profile
+            <Link href='/profile' className=' btn btn-circle btn-ghost'>
+              <UserRound />
             </Link>
           ) : (
-            <Link href='/auth/login' className='btn '>
-              Log in
+            <Link href='/auth/login' className=' btn btn-circle btn-ghost'>
+              <Fingerprint />
             </Link>
           )}
         </div>
