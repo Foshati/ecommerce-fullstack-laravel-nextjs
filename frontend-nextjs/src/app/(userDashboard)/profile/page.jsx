@@ -1,4 +1,4 @@
-import EditForm from '@/src/components/profile/EditForm';
+import EditForm from '@/src/components/profile/info/EditForm';
 import {getFetch} from '@/src/utils/fetch';
 import {cookies} from 'next/headers';
 import React from 'react';

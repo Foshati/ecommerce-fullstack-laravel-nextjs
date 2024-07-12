@@ -1,6 +1,6 @@
 'use client';
 import React, {useEffect} from 'react';
-import SubmitButton from '../button/submitButton/SubmitButton';
+import SubmitButton from '../../button/submitButton/SubmitButton';
 import {useFormState} from 'react-dom';
 import {EditFormAction} from '@/src/actions/ProfileAction';
 import {toast} from 'sonner';
@@ -40,8 +40,9 @@ export default function EditForm({user}) {
               defaultValue={user.email}
             />
           </label>
-
-          <SubmitButton title='Update' style='btn btn-wide btn-neutral mb-8' isFormValid={true} />
+          <div>
+            <SubmitButton title='Update' style='btn btn-wide btn-neutral mb-8' isFormValid={true} />
+          </div>
         </div>
         <div className=''>
           <label className='w-full max-w-xs form-control'>
