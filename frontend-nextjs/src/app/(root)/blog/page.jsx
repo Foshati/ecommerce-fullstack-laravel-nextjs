@@ -1,150 +1,167 @@
-import React from "react";
+import React from 'react';
 
 export default function BlogPage() {
   return (
     <div>
-      <section className="text-gray-400 bg-gray-900 body-font">
-        <div className="container px-5 py-24 mx-auto">
-          <div className="flex flex-col w-full mb-20 text-center">
-            <h1 className="mb-4 text-2xl font-medium text-white sm:text-3xl title-font">
-              Master Cleanse Reliac Heirloom
-            </h1>
-            <p className="mx-auto text-base leading-relaxed lg:w-2/3">
-              Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical
-              gentrify, subway tile poke farm-to-table. Franzen you probably
-              haven't heard of them man bun deep jianbing selfies heirloom.
-            </p>
+      <>
+        {/* Card Blog */}
+        <div className='max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto'>
+          {/* Grid */}
+          <div className='grid lg:grid-cols-2 lg:gap-y-16 gap-10'>
+            {/* Card */}
+            <a className='group rounded-xl overflow-hidden' href='#'>
+              <div className='sm:flex'>
+                <div className='flex-shrink-0 relative rounded-xl overflow-hidden w-full sm:w-56 h-44'>
+                  <img
+                    className='group-hover:scale-105 transition-transform duration-500 ease-in-out size-full absolute top-0 start-0 object-cover rounded-xl'
+                    src='https://images.unsplash.com/photo-1540575861501-7cf05a4b125a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'
+                    alt='Image Description'
+                  />
+                </div>
+                <div className='grow mt-4 sm:mt-0 sm:ms-6 px-4 sm:px-0'>
+                  <h3 className='text-xl font-semibold text-gray-800 group-hover:text-gray-600 dark:text-neutral-300 dark:group-hover:text-white'>
+                    Studio by Preline
+                  </h3>
+                  <p className='mt-3 text-gray-600 dark:text-neutral-400'>
+                    Produce professional, reliable streams easily leveraging Preline's innovative broadcast studio
+                  </p>
+                  <p className='mt-4 inline-flex items-center gap-x-1 text-blue-600 decoration-2 hover:underline font-medium'>
+                    Read more
+                    <svg
+                      className='flex-shrink-0 size-4'
+                      xmlns='http://www.w3.org/2000/svg'
+                      width={24}
+                      height={24}
+                      viewBox='0 0 24 24'
+                      fill='none'
+                      stroke='currentColor'
+                      strokeWidth={2}
+                      strokeLinecap='round'
+                      strokeLinejoin='round'>
+                      <path d='m9 18 6-6-6-6' />
+                    </svg>
+                  </p>
+                </div>
+              </div>
+            </a>
+            {/* End Card */}
+            {/* Card */}
+            <a className='group rounded-xl overflow-hidden' href='#'>
+              <div className='sm:flex'>
+                <div className='flex-shrink-0 relative rounded-xl overflow-hidden w-full sm:w-56 h-44'>
+                  <img
+                    className='group-hover:scale-105 transition-transform duration-500 ease-in-out size-full absolute top-0 start-0 object-cover rounded-xl'
+                    src='https://images.unsplash.com/photo-1668906093328-99601a1aa584?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=986&q=80'
+                    alt='Image Description'
+                  />
+                </div>
+                <div className='grow mt-4 sm:mt-0 sm:ms-6 px-4 sm:px-0'>
+                  <h3 className='text-xl font-semibold text-gray-800 group-hover:text-gray-600 dark:text-neutral-300 dark:group-hover:text-white'>
+                    Onsite
+                  </h3>
+                  <p className='mt-3 text-gray-600 dark:text-neutral-400'>
+                    Optimize your in-person experience with best-in-class capabilities like badge printing and lead
+                    retrieval
+                  </p>
+                  <p className='mt-4 inline-flex items-center gap-x-1 text-blue-600 decoration-2 hover:underline font-medium'>
+                    Read more
+                    <svg
+                      className='flex-shrink-0 size-4'
+                      xmlns='http://www.w3.org/2000/svg'
+                      width={24}
+                      height={24}
+                      viewBox='0 0 24 24'
+                      fill='none'
+                      stroke='currentColor'
+                      strokeWidth={2}
+                      strokeLinecap='round'
+                      strokeLinejoin='round'>
+                      <path d='m9 18 6-6-6-6' />
+                    </svg>
+                  </p>
+                </div>
+              </div>
+            </a>
+            {/* End Card */}
+            {/* Card */}
+            <a className='group rounded-xl overflow-hidden' href='#'>
+              <div className='sm:flex'>
+                <div className='flex-shrink-0 relative rounded-xl overflow-hidden w-full sm:w-56 h-44'>
+                  <img
+                    className='group-hover:scale-105 transition-transform duration-500 ease-in-out size-full absolute top-0 start-0 object-cover rounded-xl'
+                    src='https://images.unsplash.com/photo-1567016526105-22da7c13161a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80'
+                    alt='Image Description'
+                  />
+                </div>
+                <div className='grow mt-4 sm:mt-0 sm:ms-6 px-4 sm:px-0'>
+                  <h3 className='text-xl font-semibold text-gray-800 group-hover:text-gray-600 dark:text-neutral-300 dark:group-hover:text-white'>
+                    The complete guide to OKRs
+                  </h3>
+                  <p className='mt-3 text-gray-600 dark:text-neutral-400'>
+                    How to make objectives and key results work for your company
+                  </p>
+                  <p className='mt-4 inline-flex items-center gap-x-1 text-blue-600 decoration-2 hover:underline font-medium'>
+                    Read more
+                    <svg
+                      className='flex-shrink-0 size-4'
+                      xmlns='http://www.w3.org/2000/svg'
+                      width={24}
+                      height={24}
+                      viewBox='0 0 24 24'
+                      fill='none'
+                      stroke='currentColor'
+                      strokeWidth={2}
+                      strokeLinecap='round'
+                      strokeLinejoin='round'>
+                      <path d='m9 18 6-6-6-6' />
+                    </svg>
+                  </p>
+                </div>
+              </div>
+            </a>
+            {/* End Card */}
+            {/* Card */}
+            <a className='group rounded-xl overflow-hidden' href='#'>
+              <div className='sm:flex'>
+                <div className='flex-shrink-0 relative rounded-xl overflow-hidden w-full sm:w-56 h-44'>
+                  <img
+                    className='group-hover:scale-105 transition-transform duration-500 ease-in-out size-full absolute top-0 start-0 object-cover rounded-xl'
+                    src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'
+                    alt='Image Description'
+                  />
+                </div>
+                <div className='grow mt-4 sm:mt-0 sm:ms-6 px-4 sm:px-0'>
+                  <h3 className='text-xl font-semibold text-gray-800 group-hover:text-gray-600 dark:text-neutral-300 dark:group-hover:text-white'>
+                    People program models
+                  </h3>
+                  <p className='mt-3 text-gray-600 dark:text-neutral-400'>
+                    Six approaches to bringing your People strategy to life
+                  </p>
+                  <p className='mt-4 inline-flex items-center gap-x-1 text-blue-600 decoration-2 hover:underline font-medium'>
+                    Read more
+                    <svg
+                      className='flex-shrink-0 size-4'
+                      xmlns='http://www.w3.org/2000/svg'
+                      width={24}
+                      height={24}
+                      viewBox='0 0 24 24'
+                      fill='none'
+                      stroke='currentColor'
+                      strokeWidth={2}
+                      strokeLinecap='round'
+                      strokeLinejoin='round'>
+                      <path d='m9 18 6-6-6-6' />
+                    </svg>
+                  </p>
+                </div>
+              </div>
+            </a>
+            {/* End Card */}
           </div>
-          <div className="flex flex-wrap -m-4">
-            <div className="p-4 lg:w-1/3 sm:w-1/2">
-              <div className="relative flex">
-                <img
-                  alt="gallery"
-                  className="absolute inset-0 object-cover object-center w-full h-full"
-                  src="https://dummyimage.com/600x360"
-                />
-                <div className="relative z-10 w-full px-8 py-10 bg-gray-900 border-4 border-gray-800 opacity-0 hover:opacity-100">
-                  <h2 className="mb-1 text-sm font-medium tracking-widest text-indigo-400 title-font">
-                    THE SUBTITLE
-                  </h2>
-                  <h1 className="mb-3 text-lg font-medium text-white title-font">
-                    Shooting Stars
-                  </h1>
-                  <p className="leading-relaxed">
-                    Photo booth fam kinfolk cold-pressed sriracha leggings
-                    jianbing microdosing tousled waistcoat.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="p-4 lg:w-1/3 sm:w-1/2">
-              <div className="relative flex">
-                <img
-                  alt="gallery"
-                  className="absolute inset-0 object-cover object-center w-full h-full"
-                  src="https://dummyimage.com/601x361"
-                />
-                <div className="relative z-10 w-full px-8 py-10 bg-gray-900 border-4 border-gray-800 opacity-0 hover:opacity-100">
-                  <h2 className="mb-1 text-sm font-medium tracking-widest text-indigo-400 title-font">
-                    THE SUBTITLE
-                  </h2>
-                  <h1 className="mb-3 text-lg font-medium text-white title-font">
-                    The Catalyzer
-                  </h1>
-                  <p className="leading-relaxed">
-                    Photo booth fam kinfolk cold-pressed sriracha leggings
-                    jianbing microdosing tousled waistcoat.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="p-4 lg:w-1/3 sm:w-1/2">
-              <div className="relative flex">
-                <img
-                  alt="gallery"
-                  className="absolute inset-0 object-cover object-center w-full h-full"
-                  src="https://dummyimage.com/603x363"
-                />
-                <div className="relative z-10 w-full px-8 py-10 bg-gray-900 border-4 border-gray-800 opacity-0 hover:opacity-100">
-                  <h2 className="mb-1 text-sm font-medium tracking-widest text-indigo-400 title-font">
-                    THE SUBTITLE
-                  </h2>
-                  <h1 className="mb-3 text-lg font-medium text-white title-font">
-                    The 400 Blows
-                  </h1>
-                  <p className="leading-relaxed">
-                    Photo booth fam kinfolk cold-pressed sriracha leggings
-                    jianbing microdosing tousled waistcoat.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="p-4 lg:w-1/3 sm:w-1/2">
-              <div className="relative flex">
-                <img
-                  alt="gallery"
-                  className="absolute inset-0 object-cover object-center w-full h-full"
-                  src="https://dummyimage.com/602x362"
-                />
-                <div className="relative z-10 w-full px-8 py-10 bg-gray-900 border-4 border-gray-800 opacity-0 hover:opacity-100">
-                  <h2 className="mb-1 text-sm font-medium tracking-widest text-indigo-400 title-font">
-                    THE SUBTITLE
-                  </h2>
-                  <h1 className="mb-3 text-lg font-medium text-white title-font">
-                    Neptune
-                  </h1>
-                  <p className="leading-relaxed">
-                    Photo booth fam kinfolk cold-pressed sriracha leggings
-                    jianbing microdosing tousled waistcoat.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="p-4 lg:w-1/3 sm:w-1/2">
-              <div className="relative flex">
-                <img
-                  alt="gallery"
-                  className="absolute inset-0 object-cover object-center w-full h-full"
-                  src="https://dummyimage.com/605x365"
-                />
-                <div className="relative z-10 w-full px-8 py-10 bg-gray-900 border-4 border-gray-800 opacity-0 hover:opacity-100">
-                  <h2 className="mb-1 text-sm font-medium tracking-widest text-indigo-400 title-font">
-                    THE SUBTITLE
-                  </h2>
-                  <h1 className="mb-3 text-lg font-medium text-white title-font">
-                    Holden Caulfield
-                  </h1>
-                  <p className="leading-relaxed">
-                    Photo booth fam kinfolk cold-pressed sriracha leggings
-                    jianbing microdosing tousled waistcoat.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="p-4 lg:w-1/3 sm:w-1/2">
-              <div className="relative flex">
-                <img
-                  alt="gallery"
-                  className="absolute inset-0 object-cover object-center w-full h-full"
-                  src="https://dummyimage.com/606x366"
-                />
-                <div className="relative z-10 w-full px-8 py-10 bg-gray-900 border-4 border-gray-800 opacity-0 hover:opacity-100">
-                  <h2 className="mb-1 text-sm font-medium tracking-widest text-indigo-400 title-font">
-                    THE SUBTITLE
-                  </h2>
-                  <h1 className="mb-3 text-lg font-medium text-white title-font">
-                    Alper Kamu
-                  </h1>
-                  <p className="leading-relaxed">
-                    Photo booth fam kinfolk cold-pressed sriracha leggings
-                    jianbing microdosing tousled waistcoat.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+          {/* End Grid */}
         </div>
-      </section>
+        {/* End Card Blog */}
+      </>
     </div>
   );
 }
