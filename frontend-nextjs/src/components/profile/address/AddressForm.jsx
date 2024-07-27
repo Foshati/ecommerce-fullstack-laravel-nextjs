@@ -3,6 +3,12 @@ import React, {useState} from 'react';
 
 export default function AddressForm({cities, provinces}) {
   const [show, setShow] = useState(false);
+  const [citiesFilter, setCitiesFilter] = useState([]);
+
+  function changeProvince(e) {
+    setCitiesFilter(cities.filter((city) => city.province_id == e.target.value));
+    /* console.log(e.target.value); */
+  }
 
   return (
     <div>
@@ -31,23 +37,21 @@ export default function AddressForm({cities, provinces}) {
               <input name='postal_code' type='text' className='w-full max-w-xs bg-black input input-bordered' />
             </label>
           </div>
-          <div className=''>
+          <div>
             <label className='w-full max-w-xs mt-4 mb-4 form-control'>
               <div className='label'>
                 <span className='label-text'>Country</span>
               </div>
-              <div class='w-full max-w-xs'>
-                <select className='select select-bordered w-full max-w-xs bg-black '>
-                  <option disabled selected>
-                    Choose a country
+              <div className='w-full max-w-xs'>
+                <select className='select select-bordered w-full max-w-xs bg-black' onChange={changeProvince}>
+                  <option disabled value=''>
+                    Choose a province
                   </option>
-                  <option>United States</option>
-                  <option>Canada</option>
-                  <option>United Kingdom</option>
-                  <option>Germany</option>
-                  <option>France</option>
-                  <option>Japan</option>
-                  <option>Australia</option>
+                  {provinces.map((province) => (
+                    <option key={province.id} value={province.id}>
+                      {province.name}
+                    </option>
+                  ))}
                 </select>
               </div>
             </label>
@@ -57,11 +61,14 @@ export default function AddressForm({cities, provinces}) {
                 <span className='label-text'>City</span>
               </div>
               <select className='select select-bordered w-full max-w-xs bg-black'>
-                <option disabled selected>
-                  Who shot first?
+                <option disabled value=''>
+                  Choose a city
                 </option>
-                <option>Han Solo</option>
-                <option>Greedo</option>
+                {citiesFilter.map((city) => (
+                  <option key={city.id} value={city.id}>
+                    {city.name}
+                  </option>
+                ))}
               </select>
             </label>
             <label className='form-control'>
