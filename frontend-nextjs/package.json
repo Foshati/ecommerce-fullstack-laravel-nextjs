@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@preline/combobox": "^2.3.0",
+    "framer-motion": "^11.3.18",
     "install": "^0.13.0",
     "leaflet": "^1.9.4",
     "lucide-react": "^0.390.0",

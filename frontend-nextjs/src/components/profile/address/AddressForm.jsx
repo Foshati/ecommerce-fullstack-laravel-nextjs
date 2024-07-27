@@ -1,13 +1,8 @@
 'use client';
 import React, {useState} from 'react';
-import ComboBox from '../../ui/ComboBox/ComboBox';
 
 export default function AddressForm({cities, provinces}) {
   const [show, setShow] = useState(false);
-  const [selectedProvince, setSelectedProvince] = useState('');
-  const [selectedCity, setSelectedCity] = useState('');
-
-  const filteredCities = cities.filter((city) => city.province_id.toString() === selectedProvince);
 
   return (
     <div>
@@ -39,28 +34,35 @@ export default function AddressForm({cities, provinces}) {
           <div className=''>
             <label className='w-full max-w-xs mt-4 mb-4 form-control'>
               <div className='label'>
-                <span className='label-text'>Province</span>
+                <span className='label-text'>Country</span>
               </div>
-              <ComboBox
-                className=''
-                title='province'
-                options={provinces}
-                placeholder='Select province'
-                onSelect={(value) => setSelectedProvince(value)}
-              />
+              <div class='w-full max-w-xs'>
+                <select className='select select-bordered w-full max-w-xs bg-black '>
+                  <option disabled selected>
+                    Choose a country
+                  </option>
+                  <option>United States</option>
+                  <option>Canada</option>
+                  <option>United Kingdom</option>
+                  <option>Germany</option>
+                  <option>France</option>
+                  <option>Japan</option>
+                  <option>Australia</option>
+                </select>
+              </div>
             </label>
 
             <label className='w-full max-w-xs mt-4 mb-4 form-control'>
               <div className='label'>
                 <span className='label-text'>City</span>
               </div>
-              <ComboBox
-                className=''
-                title='city'
-                options={filteredCities}
-                placeholder='Select city'
-                onSelect={(value) => setSelectedCity(value)}
-              />
+              <select className='select select-bordered w-full max-w-xs bg-black'>
+                <option disabled selected>
+                  Who shot first?
+                </option>
+                <option>Han Solo</option>
+                <option>Greedo</option>
+              </select>
             </label>
             <label className='form-control'>
               <div className='label'>
