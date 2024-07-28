@@ -7,6 +7,8 @@ import React from 'react';
 export default async function AddressesPage() {
   const token = cookies().get('token');
   const {addresses, provinces, cities} = await getFetch('/profile/addresses', {Authorization: `Bearer ${token.value}`});
+  // const data = await getFetch('/profile/addresses', {Authorization: `Bearer ${token.value}`});
+
   return (
     <div>
       <CreateAddressForm provinces={provinces} cities={cities} />
