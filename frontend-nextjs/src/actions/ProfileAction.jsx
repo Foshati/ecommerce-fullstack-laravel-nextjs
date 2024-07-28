@@ -36,7 +36,7 @@ async function EditFormAction(state, formData) {
   }
 }
 
-async function CreateFormAction(state, formData) {
+async function CreateAddressAction(state, formData) {
   const title = formData.get('title');
   const cellphone = formData.get('cellphone');
   const postal_code = formData.get('postal_code');
@@ -94,4 +94,62 @@ async function CreateFormAction(state, formData) {
   }
 }
 
-export {EditFormAction, CreateFormAction};
+async function EditAddressAction(state, formData) {
+  const title = formData.get('title');
+  const cellphone = formData.get('cellphone');
+  const postal_code = formData.get('postal_code');
+  const province_id = formData.get('province_id');
+  const city_id = formData.get('city_id');
+  const address = formData.get('address');
+
+  if (title === '') {
+    return {
+      status: 'error',
+      message: 'The title field is required.',
+    };
+  }
+
+  const cellphonePattern = /^(\+98|0)?9\d{9}$/i;
+  if (cellphone == '' || !cellphonePattern.test(cellphone)) {
+    return {
+      status: 'error',
+      message: 'The contact number field is invalid.',
+    };
+  }
+
+  const postalCodePattern = /^\d{5}[ -]?\d{5}$/i;
+
+  if (postal_code == '' || !postalCodePattern.test(postal_code)) {
+    return {
+      status: 'error',
+      message: 'The postal code field is invalid.',
+    };
+  }
+
+  if (address === '') {
+    return {
+      status: 'error',
+      message: 'The address field is required.',
+    };
+  }
+
+  const token = cookies().get('token');
+  const data = await postFetch(
+    '/profile/addresses/create',
+    {title, cellphone, postal_code, province_id, city_id, address},
+    {Authorization: `Bearer ${token.value}`},
+  );
+  if (data.status === 'success') {
+    return {
+      status: data.status,
+      message: 'Address edited successfully',
+    };
+  } else {
+    return {
+      status: data.status,
+      message: handleError(data.message),
+    };
+  }
+}
+
+export {EditFormAction, CreateAddressAction, EditAddressAction};

@@ -1,42 +1,35 @@
 'use client';
-import {useState, useEffect} from 'react';
-import {AnimatePresence, motion} from 'framer-motion';
-
+import React, {useEffect, useState} from 'react';
 import SubmitButton from '../../button/submitButton/SubmitButton';
-import {useFormState} from 'react-dom';
-import {CreateFormAction} from '@/src/actions/ProfileAction';
 import {toast} from 'sonner';
+import {useFormState} from 'react-dom';
+import {CreateAddressAction} from '@/src/actions/ProfileAction';
+import {motion} from 'framer-motion';
 
-export default function AddressForm({cities, provinces}) {
+export default function CreateAddressForm({cities, provinces}) {
   const [show, setShow] = useState(false);
   const [citiesFilter, setCitiesFilter] = useState([]);
-  const [stateCreateForm, formActionCreateForm] = useFormState(CreateFormAction, {});
+  const [stateCreateForm, formActionCreateForm] = useFormState(CreateAddressAction, {});
+
+  function changeProvince(e) {
+    setCitiesFilter(cities.filter((city) => city.province_id == e.target.value));
+    /* console.log(e.target.value); */
+  }
 
   useEffect(() => {
     if (stateCreateForm?.message && stateCreateForm?.status) {
       toast(stateCreateForm.message, {type: stateCreateForm.status});
     }
   }, [stateCreateForm]);
-
-  function changeProvince(e) {
-    setCitiesFilter(cities.filter((city) => city.province_id == e.target.value));
-    console.log(e.target.value);
-  }
-
   return (
     <div>
-      <button type='button' onClick={() => setShow(!show)} className='btn bg-black'>
+      <button onClick={() => setShow(!show)} className='btn bg-black'>
         create address
       </button>
       <form action={formActionCreateForm}>
-        <AnimatePresence>
-          {show && (
-            <motion.div
-              initial={{opacity: 0}}
-              animate={{opacity: 1}}
-              exit={{opacity: 0}}
-              transition={{duration: 0.3}}
-              className='grid lg:grid-cols-2 gap-4 grid-cols-1 sm:grid-cols-2 mx-auto'>
+        {show && (
+          <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{duration: 0.5}}>
+            <div className='grid lg:grid-cols-2 gap-4 grid-cols-1  sm:grid-cols-2 mx-auto'>
               <div>
                 <label className='w-full max-w-xs mt-4 mb-4 form-control'>
                   <div className='label'>
@@ -78,7 +71,6 @@ export default function AddressForm({cities, provinces}) {
                     </select>
                   </div>
                 </label>
-
                 <label className='w-full max-w-xs mt-4 mb-4 form-control'>
                   <div className='label'>
                     <span className='label-text'>City</span>
@@ -105,9 +97,9 @@ export default function AddressForm({cities, provinces}) {
                 </label>
               </div>
               <SubmitButton title='Create address' style='btn btn-wide btn-neutral mb-8' isFormValid={true} />
-            </motion.div>
-          )}
-        </AnimatePresence>
+            </div>
+          </motion.div>
+        )}
       </form>
     </div>
   );
