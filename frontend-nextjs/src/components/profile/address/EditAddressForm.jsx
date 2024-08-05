@@ -128,6 +128,7 @@ export default function EditAddressForm({address, cities, provinces, index}) {
                         placeholder=''
                         className='textarea textarea-bordered textarea-md w-full max-w-xs bg-black'></textarea>
                     </label>
+                    <input name='address_id' type='hidden' value={address.id} />
                   </div>
                   <SubmitButton title='Edit address' style='btn btn-wide btn-neutral mb-8' isFormValid={true} />
                 </div>

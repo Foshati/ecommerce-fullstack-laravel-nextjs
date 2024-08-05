@@ -3,7 +3,7 @@
 import {postFetch} from '../utils/fetch';
 import {handleError} from '../utils/helpers';
 
-async function ContactAction(state, formData) {
+export async function ContactAction(state, formData) {
   const name = formData.get('name');
   const email = formData.get('email');
   const subject = formData.get('subject');
@@ -30,5 +30,3 @@ async function ContactAction(state, formData) {
     };
   }
 }
-
-export {ContactAction};

@@ -4,7 +4,7 @@ import {cookies} from 'next/headers';
 import {postFetch} from '../utils/fetch';
 import {handleError} from '../utils/helpers';
 
-async function EditFormAction(state, formData) {
+export async function EditFormAction(state, formData) {
   const name = formData.get('name');
   const email = formData.get('email');
 
@@ -36,7 +36,7 @@ async function EditFormAction(state, formData) {
   }
 }
 
-async function CreateAddressAction(state, formData) {
+export async function CreateAddressAction(state, formData) {
   const title = formData.get('title');
   const cellphone = formData.get('cellphone');
   const postal_code = formData.get('postal_code');
@@ -94,13 +94,14 @@ async function CreateAddressAction(state, formData) {
   }
 }
 
-async function EditAddressAction(state, formData) {
+export async function EditAddressAction(state, formData) {
   const title = formData.get('title');
   const cellphone = formData.get('cellphone');
   const postal_code = formData.get('postal_code');
   const province_id = formData.get('province_id');
   const city_id = formData.get('city_id');
   const address = formData.get('address');
+  const address_id = formData.get('address_id');
 
   if (title === '') {
     return {
@@ -133,10 +134,17 @@ async function EditAddressAction(state, formData) {
     };
   }
 
+  if (address_id === ' || address_id ===null') {
+    return {
+      status: 'error',
+      message: 'address ID is required',
+    };
+  }
+
   const token = cookies().get('token');
   const data = await postFetch(
-    '/profile/addresses/create',
-    {title, cellphone, postal_code, province_id, city_id, address},
+    '/profile/addresses/edit',
+    {title, cellphone, postal_code, province_id, city_id, address, address_id},
     {Authorization: `Bearer ${token.value}`},
   );
   if (data.status === 'success') {
@@ -151,5 +159,3 @@ async function EditAddressAction(state, formData) {
     };
   }
 }
-
-export {EditFormAction, CreateAddressAction, EditAddressAction};
