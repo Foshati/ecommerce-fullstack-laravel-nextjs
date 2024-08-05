@@ -3,8 +3,9 @@
 import {cookies} from 'next/headers';
 import {postFetch} from '../utils/fetch';
 import {handleError} from '../utils/helpers';
+import {revalidatePath} from 'next/cache';
 
-export async function EditFormAction(state, formData) {
+export async function EditProfileFormAction(state, formData) {
   const name = formData.get('name');
   const email = formData.get('email');
 
@@ -82,6 +83,7 @@ export async function CreateAddressAction(state, formData) {
     {Authorization: `Bearer ${token.value}`},
   );
   if (data.status === 'success') {
+    revalidatePath('/profile/addresses');
     return {
       status: data.status,
       message: ' The address has been saved successfully',
@@ -134,7 +136,7 @@ export async function EditAddressAction(state, formData) {
     };
   }
 
-  if (address_id === ' || address_id ===null') {
+  if (address_id === '' || address_id === null) {
     return {
       status: 'error',
       message: 'address ID is required',
@@ -151,6 +153,32 @@ export async function EditAddressAction(state, formData) {
     return {
       status: data.status,
       message: 'Address edited successfully',
+    };
+  } else {
+    return {
+      status: data.status,
+      message: handleError(data.message),
+    };
+  }
+}
+
+export async function deleteFormAction(state, formData) {
+  const address_id = formData.get('address_id');
+
+  if (address_id === '' || address_id === null) {
+    return {
+      status: 'error',
+      message: 'address ID is required',
+    };
+  }
+
+  const token = cookies().get('token');
+  const data = await postFetch('/profile/addresses/delete', {address_id}, {Authorization: `Bearer ${token.value}`});
+  if (data.status === 'success') {
+    revalidatePath('/profile/addresses');
+    return {
+      status: data.status,
+      message: 'Address delete successfully',
     };
   } else {
     return {

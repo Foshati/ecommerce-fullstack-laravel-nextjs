@@ -1,14 +1,14 @@
 'use client';
-import React, {useEffect, useState} from 'react';
+import {useState} from 'react';
 import SubmitButton from '../../button/submitButton/SubmitButton';
-import {toast} from 'sonner';
 import {useFormState} from 'react-dom';
-import {CreateAddressAction} from '@/src/actions/ProfileAction';
 import {motion} from 'framer-motion';
+import {CreateAddressAction} from '@/src/actions/ProfileAction';
+import SonnerToast from '../../libraries/sonnerToast/SonnerToast';
 
 export default function CreateAddressForm({cities, provinces}) {
   const [show, setShow] = useState(false);
-  const [citiesFilter, setCitiesFilter] = useState([]);
+  const [citiesFilter, setCitiesFilter] = useState(cities.filter((city) => city.province_id == provinces[0].id));
   const [stateCreateForm, formActionCreateForm] = useFormState(CreateAddressAction, {});
 
   function changeProvince(e) {
@@ -16,11 +16,6 @@ export default function CreateAddressForm({cities, provinces}) {
     /* console.log(e.target.value); */
   }
 
-  useEffect(() => {
-    if (stateCreateForm?.message && stateCreateForm?.status) {
-      toast(stateCreateForm.message, {type: stateCreateForm.status});
-    }
-  }, [stateCreateForm]);
   return (
     <div>
       <button onClick={() => setShow(!show)} className='btn bg-black'>
@@ -101,6 +96,7 @@ export default function CreateAddressForm({cities, provinces}) {
           </motion.div>
         )}
       </form>
+      <SonnerToast status={stateCreateForm.status} message={stateCreateForm.message} />
     </div>
   );
 }

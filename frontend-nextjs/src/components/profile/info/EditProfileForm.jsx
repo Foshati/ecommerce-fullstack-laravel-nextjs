@@ -2,11 +2,11 @@
 import React, {useEffect} from 'react';
 import SubmitButton from '../../button/submitButton/SubmitButton';
 import {useFormState} from 'react-dom';
-import {EditFormAction} from '@/src/actions/ProfileAction';
 import {toast} from 'sonner';
+import {EditProfileFormAction} from '@/src/actions/ProfileAction';
 
-export default function EditForm({user}) {
-  const [stateEditForm, formActionEditForm] = useFormState(EditFormAction, {});
+export default function EditProfileForm({user}) {
+  const [stateEditForm, formActionEditForm] = useFormState(EditProfileFormAction, {});
 
   useEffect(() => {
     if (stateEditForm?.message && stateEditForm?.status) {
@@ -51,7 +51,7 @@ export default function EditForm({user}) {
             </div>
             <input
               type='text'
-              className='w-full max-w-xs input input-bordered disabled:bg-black' /* !bg-black */
+              className='w-full max-w-xs input input-bordered    disabled:bg-black' /* !bg-black */
               disabled
               defaultValue={user.cellphone}
             />

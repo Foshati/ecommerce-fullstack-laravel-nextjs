@@ -1,4 +1,4 @@
-import EditForm from '@/src/components/profile/info/EditForm';
+import EditProfileForm from '@/src/components/profile/info/EditProfileForm';
 import {getFetch} from '@/src/utils/fetch';
 import {cookies} from 'next/headers';
 import React from 'react';
@@ -9,7 +9,7 @@ export default async function profilePage() {
   // console.log(user);
   return (
     <div>
-      <EditForm user={user} />
+      <EditProfileForm user={user} />
     </div>
   );
 }

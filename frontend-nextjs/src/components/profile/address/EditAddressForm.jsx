@@ -5,7 +5,8 @@ import {toast} from 'sonner';
 import {useFormState} from 'react-dom';
 import {motion} from 'framer-motion';
 import {EditAddressAction} from '@/src/actions/ProfileAction';
-import {ChevronDown, ChevronUp, X} from 'lucide-react';
+import {ChevronDown, ChevronUp} from 'lucide-react';
+import DeleteAddressForm from './DeleteAddressForm';
 
 export default function EditAddressForm({address, cities, provinces, index}) {
   const [citiesFilter, setCitiesFilter] = useState(cities);
@@ -26,9 +27,7 @@ export default function EditAddressForm({address, cities, provinces, index}) {
       <div>
         <div className='divider before:bg-black after:bg-black'>{`Address ${index + 1}`}</div>
         <div className='flex justify-end'>
-          <button className='btn btn-ghost btn-circle text-red-500'>
-            <X />
-          </button>
+          <DeleteAddressForm addressId={address.id} />
 
           <button onClick={() => setShow(!show)} className='btn btn-ghost btn-circle text-black size-12'>
             {show == true ? <ChevronUp /> : <ChevronDown />}
