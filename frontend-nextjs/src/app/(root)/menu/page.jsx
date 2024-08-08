@@ -2,10 +2,10 @@ import {Suspense} from 'react';
 
 import {getFetch} from '@/src/utils/fetch';
 import Sort from '@/src/components/menu/Sort';
-import Loading from '@/src/components/menu/Loading';
 import SearchMenu from '@/src/components/menu/SearchMenu';
 import ProductList from '@/src/components/menu/ProductList';
 import CategoriesList from '@/src/components/menu/CategoriesList';
+import Loading from '@/src/components/UI/loading/Loading';
 
 export default async function MenuPage({searchParams}) {
   const categoriesFetch = await getFetch('/categories');
