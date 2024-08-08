@@ -29,7 +29,7 @@ export default function EditAddressForm({address, cities, provinces, index}) {
         <div className='flex justify-end'>
           <DeleteAddressForm addressId={address.id} />
 
-          <button onClick={() => setShow(!show)} className='btn btn-ghost btn-circle text-black size-12'>
+          <button onClick={() => setShow(!show)} className='btn btn-circle btn-ghost size-12 text-black'>
             {show == true ? <ChevronUp /> : <ChevronDown />}
           </button>
         </div>
@@ -41,9 +41,9 @@ export default function EditAddressForm({address, cities, provinces, index}) {
                 animate={{opacity: 1}}
                 exit={{opacity: 0}}
                 transition={{duration: 0.5}}>
-                <div className='grid lg:grid-cols-2 gap-4 grid-cols-1  sm:grid-cols-2 mx-auto'>
+                <div className='mx-auto grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-2'>
                   <div>
-                    <label className='w-full max-w-xs mt-4 mb-4 form-control'>
+                    <label className='form-control mb-4 mt-4 w-full max-w-xs'>
                       <div className='label'>
                         <span className='label-text'>Title</span>
                       </div>
@@ -51,10 +51,10 @@ export default function EditAddressForm({address, cities, provinces, index}) {
                         name='title'
                         defaultValue={address.title}
                         type='text'
-                        className='w-full max-w-xs bg-black input input-bordered'
+                        className='input input-bordered w-full max-w-xs bg-black'
                       />
                     </label>
-                    <label className='w-full max-w-xs mt-4 mb-4 form-control'>
+                    <label className='form-control mb-4 mt-4 w-full max-w-xs'>
                       <div className='label'>
                         <span className='label-text'>Phone number</span>
                       </div>
@@ -62,10 +62,10 @@ export default function EditAddressForm({address, cities, provinces, index}) {
                         name='cellphone'
                         defaultValue={address.cellphone}
                         type='text'
-                        className='w-full max-w-xs bg-black input input-bordered'
+                        className='input input-bordered w-full max-w-xs bg-black'
                       />
                     </label>
-                    <label className='w-full max-w-xs mt-4 mb-4 form-control'>
+                    <label className='form-control mb-4 mt-4 w-full max-w-xs'>
                       <div className='label'>
                         <span className='label-text'>Postal code</span>
                       </div>
@@ -73,12 +73,12 @@ export default function EditAddressForm({address, cities, provinces, index}) {
                         name='postal_code'
                         defaultValue={address.postal_code}
                         type='text'
-                        className='w-full max-w-xs bg-black input input-bordered'
+                        className='input input-bordered w-full max-w-xs bg-black'
                       />
                     </label>
                   </div>
                   <div>
-                    <label className='w-full max-w-xs mt-4 mb-4 form-control'>
+                    <label className='form-control mb-4 mt-4 w-full max-w-xs'>
                       <div className='label'>
                         <span className='label-text'>Country</span>
                       </div>
@@ -99,7 +99,7 @@ export default function EditAddressForm({address, cities, provinces, index}) {
                         </select>
                       </div>
                     </label>
-                    <label className='w-full max-w-xs mt-4 mb-4 form-control'>
+                    <label className='form-control mb-4 mt-4 w-full max-w-xs'>
                       <div className='label'>
                         <span className='label-text'>City</span>
                       </div>
@@ -135,6 +135,10 @@ export default function EditAddressForm({address, cities, provinces, index}) {
             </form>
           </div>
         )}
+
+        <button className='inline-block cursor-pointer rounded-md bg-indigo-600 px-4 py-3 pl-4 text-center text-sm font-semibold uppercase text-white transition duration-200 ease-in-out hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2 active:scale-95'>
+          Tailwind Button
+        </button>
       </div>
     </>
   );

@@ -28,31 +28,31 @@ export default function FormContact() {
 
   return (
     <>
-      <form ref={formRef} action={formAction} className='flex flex-col w-full space-y-4' onChange={handleInputChange}>
+      <form ref={formRef} action={formAction} className='flex w-full flex-col space-y-4' onChange={handleInputChange}>
         <h2 className='mb-1 text-lg font-medium text-white'>Feedback</h2>
         <p className='mb-5 leading-relaxed'>Post-ironic portland shabby chic echo park, banjo fashion axe</p>
         <input
           type='text'
           name='name'
           placeholder='Name'
-          className='w-full px-3 py-1 text-base leading-8 text-white transition-colors duration-200 ease-in-out bg-gray-800 border border-gray-700 rounded outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900'
+          className='w-full rounded border border-gray-700 bg-gray-800 px-3 py-1 text-base leading-8 text-white outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900'
         />
         <input
           type='email'
           name='email'
           placeholder='Email'
-          className='w-full px-3 py-1 text-base leading-8 text-white transition-colors duration-200 ease-in-out bg-gray-800 border border-gray-700 rounded outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900'
+          className='w-full rounded border border-gray-700 bg-gray-800 px-3 py-1 text-base leading-8 text-white outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900'
         />
         <input
           type='text'
           name='subject'
           placeholder='Subject'
-          className='w-full px-3 py-1 text-base leading-8 text-white transition-colors duration-200 ease-in-out bg-gray-800 border border-gray-700 rounded outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900'
+          className='w-full rounded border border-gray-700 bg-gray-800 px-3 py-1 text-base leading-8 text-white outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900'
         />
         <textarea
           name='text'
           placeholder='Message'
-          className='w-full h-32 px-3 py-1 text-base leading-6 text-white transition-colors duration-200 ease-in-out bg-gray-800 border border-gray-700 rounded outline-none resize-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900'></textarea>
+          className='h-32 w-full resize-none rounded border border-gray-700 bg-gray-800 px-3 py-1 text-base leading-6 text-white outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900'></textarea>
         <div className='flex justify-center'>
           <SubmitButton title='Send' style='btn btn-wide btn-neutral' isFormValid={isFormValid} />
         </div>

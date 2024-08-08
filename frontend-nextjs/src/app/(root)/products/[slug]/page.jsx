@@ -22,28 +22,24 @@ export default async function singleProductPage({params}) {
 
   return (
     <div>
-      <section className='overflow-hidden text-gray-400 bg-gray-900 body-font'>
-        <div className='container px-5 py-24 mx-auto'>
-          <div className='flex flex-wrap mx-auto lg:w-4/5'>
+      <section className='body-font overflow-hidden bg-gray-900 text-gray-400'>
+        <div className='container mx-auto px-5 py-24'>
+          <div className='mx-auto flex flex-wrap lg:w-4/5'>
             <ProductSlider images={allImages} />
 
-            <div className='w-full mt-6 lg:w-1/2 lg:pl-10 lg:py-6 lg:mt-0'>
-              <h2 className='text-sm tracking-widest text-gray-500 title-font'>
-                {product.category}
-              </h2>
-              <h1 className='mb-1 text-3xl font-medium text-white title-font'>{product.name}</h1>
+            <div className='mt-6 w-full lg:mt-0 lg:w-1/2 lg:py-6 lg:pl-10'>
+              <h2 className='title-font text-sm tracking-widest text-gray-500'>{product.category}</h2>
+              <h1 className='title-font mb-1 text-3xl font-medium text-white'>{product.name}</h1>
               <Rating />
               <p className='leading-relaxed'>{product.description}</p>
-              <div className='flex items-center pb-5 mt-6 mb-5 border-b-2 border-gray-800'></div>
+              <div className='mb-5 mt-6 flex items-center border-b-2 border-gray-800 pb-5'></div>
               <div className='flex'>
                 <div className='flex items-center justify-center gap-4'>
                   <span>
                     {product.is_sale ? (
                       <>
                         <del className='text-xs'>{numberFormat(product.price)}$</del>
-                        <p className='mt-1 text-xs text-red-700'>
-                          {numberFormat(product.sale_price)}$
-                        </p>
+                        <p className='mt-1 text-xs text-red-700'>{numberFormat(product.sale_price)}$</p>
                       </>
                     ) : (
                       <>
@@ -53,13 +49,11 @@ export default async function singleProductPage({params}) {
                   </span>
 
                   <span>
-                    {product.is_sale && (
-                      <span>{salePercent(product.price, product.sale_price)}٪ Discount</span>
-                    )}
+                    {product.is_sale && <span>{salePercent(product.price, product.sale_price)}٪ Discount</span>}
                   </span>
 
                   <CustomButton href={`/product/${product.slug}`} text='buy' />
-                  <button className='inline-flex items-center justify-center w-10 h-10 p-0 mt-2 ml-4 text-gray-500 bg-gray-800 border-0 rounded-full'>
+                  <button className='ml-4 mt-2 inline-flex h-10 w-10 items-center justify-center rounded-full border-0 bg-gray-800 p-0 text-gray-500'>
                     <Heart />
                   </button>
                 </div>
@@ -68,10 +62,10 @@ export default async function singleProductPage({params}) {
           </div>
         </div>
       </section>
-      <div className='flex items-center pb-5 mt-6 mb-5 border-b-2 border-gray-800'></div>
-      <section className='grid grid-cols-1 gap-4 m-6 lg:grid-cols-4 sm:grid-cols-2'>
+      <div className='mb-5 mt-6 flex items-center border-b-2 border-gray-800 pb-5'></div>
+      <section className='m-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4'>
         {randomProduct.map((product, index) => (
-          <div key={index} className={`block ${index >= 2 ? 'lg:block hidden' : ''}`}>
+          <div key={index} className={`block ${index >= 2 ? 'hidden lg:block' : ''}`}>
             <ProductItem product={product} />
           </div>
         ))}

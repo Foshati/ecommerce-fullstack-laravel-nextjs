@@ -1,17 +1,14 @@
-"use client";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import ProductItem from "./ProductItem";
+'use client';
+import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
+import ProductItem from './ProductItem';
 
-export default function ProductTabs({ tabList, tabPanel }) {
+export default function ProductTabs({tabList, tabPanel}) {
   return (
-    <div className="mt-28">
-      <Tabs
-        className="flex flex-col items-center justify-center m-8"
-        selectedTabClassName={"tab-active"}
-      >
-        <TabList className="w-2/5 tabs tabs-bordered tabs-sm">
+    <div className='mt-28'>
+      <Tabs className='m-8 flex flex-col items-center justify-center' selectedTabClassName={'tab-active'}>
+        <TabList className='tabs tabs-bordered tabs-sm w-2/5'>
           {tabList.map((list, index) => (
-            <Tab key={index} className="tab tab-sm">
+            <Tab key={index} className='tab-sm tab'>
               {list}
             </Tab>
           ))}
@@ -19,10 +16,10 @@ export default function ProductTabs({ tabList, tabPanel }) {
 
         {tabPanel.map((panel, index) => (
           <TabPanel key={index}>
-            <div className="container flex flex-wrap justify-center gap-6 p-6 mx-auto">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            <div className='container mx-auto flex flex-wrap justify-center gap-6 p-6'>
+              <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'>
                 {panel.map((product) => (
-                  <div key={product.id} className="p-4">
+                  <div key={product.id} className='p-4'>
                     <ProductItem product={product} />
                   </div>
                 ))}

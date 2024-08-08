@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import {usePathname, useRouter, useSearchParams} from 'next/navigation';
 
 export default function Sort() {
   const router = useRouter();
@@ -9,32 +9,32 @@ export default function Sort() {
 
   function handleClick(type) {
     const params = new URLSearchParams(searchParams);
-    params.set("sortBy", type);
-    params.delete("page");
+    params.set('sortBy', type);
+    params.delete('page');
 
     router.replace(`${pathName}?${params.toString()}`);
     // example url: .../menu/?sortBy=max
   }
 
   const sortOptions = [
-    { label: "highest price", value: "max" },
-    { label: "lowest price", value: "min" },
-    { label: "Best selling", value: "bestseller" },
-    { label: "with discount", value: "sale" },
+    {label: 'highest price', value: 'max'},
+    {label: 'lowest price', value: 'min'},
+    {label: 'Best selling', value: 'bestseller'},
+    {label: 'with discount', value: 'sale'},
   ];
 
   return (
     <div>
       {sortOptions.map((option) => (
-        <div className="form-control" key={option.value}>
-          <label className="cursor-pointer label">
-            <span className="label-text">{option.label}</span>
+        <div className='form-control' key={option.value}>
+          <label className='label cursor-pointer'>
+            <span className='label-text'>{option.label}</span>
             <input
-              type="radio"
-              name="radio-10"
+              type='radio'
+              name='radio-10'
               onClick={() => handleClick(option.value)}
-              checked={searchParams.get("sortBy") === option.value}
-              className="radio radio-error checked:bg-red-500"
+              checked={searchParams.get('sortBy') === option.value}
+              className='radio-error radio checked:bg-red-500'
             />
           </label>
         </div>

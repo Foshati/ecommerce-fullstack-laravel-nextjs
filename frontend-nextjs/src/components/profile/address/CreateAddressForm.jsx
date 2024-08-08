@@ -24,29 +24,29 @@ export default function CreateAddressForm({cities, provinces}) {
       <form action={formActionCreateForm}>
         {show && (
           <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{duration: 0.5}}>
-            <div className='grid lg:grid-cols-2 gap-4 grid-cols-1  sm:grid-cols-2 mx-auto'>
+            <div className='mx-auto grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-2'>
               <div>
-                <label className='w-full max-w-xs mt-4 mb-4 form-control'>
+                <label className='form-control mb-4 mt-4 w-full max-w-xs'>
                   <div className='label'>
                     <span className='label-text'>Title</span>
                   </div>
-                  <input name='title' type='text' className='w-full max-w-xs bg-black input input-bordered' />
+                  <input name='title' type='text' className='input input-bordered w-full max-w-xs bg-black' />
                 </label>
-                <label className='w-full max-w-xs mt-4 mb-4 form-control'>
+                <label className='form-control mb-4 mt-4 w-full max-w-xs'>
                   <div className='label'>
                     <span className='label-text'>Phone number</span>
                   </div>
-                  <input name='cellphone' type='text' className='w-full max-w-xs bg-black input input-bordered' />
+                  <input name='cellphone' type='text' className='input input-bordered w-full max-w-xs bg-black' />
                 </label>
-                <label className='w-full max-w-xs mt-4 mb-4 form-control'>
+                <label className='form-control mb-4 mt-4 w-full max-w-xs'>
                   <div className='label'>
                     <span className='label-text'>Postal code</span>
                   </div>
-                  <input name='postal_code' type='text' className='w-full max-w-xs bg-black input input-bordered' />
+                  <input name='postal_code' type='text' className='input input-bordered w-full max-w-xs bg-black' />
                 </label>
               </div>
               <div>
-                <label className='w-full max-w-xs mt-4 mb-4 form-control'>
+                <label className='form-control mb-4 mt-4 w-full max-w-xs'>
                   <div className='label'>
                     <span className='label-text'>Country</span>
                   </div>
@@ -66,7 +66,7 @@ export default function CreateAddressForm({cities, provinces}) {
                     </select>
                   </div>
                 </label>
-                <label className='w-full max-w-xs mt-4 mb-4 form-control'>
+                <label className='form-control mb-4 mt-4 w-full max-w-xs'>
                   <div className='label'>
                     <span className='label-text'>City</span>
                   </div>

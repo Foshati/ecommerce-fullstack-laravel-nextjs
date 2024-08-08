@@ -93,8 +93,8 @@ async function AuthActionOtp(stateOtp, formData) {
     };
   }
 }
-
-async function AuthActionResendOtp(stateResendOtp) {
+// stateResendOtp
+async function AuthActionResendOtp() {
   const loginToken = cookies().get('login_token');
   if (!loginToken) {
     return {

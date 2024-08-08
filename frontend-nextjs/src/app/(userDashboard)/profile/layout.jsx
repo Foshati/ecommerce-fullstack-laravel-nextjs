@@ -13,38 +13,38 @@ export default function ProfileLayout({children}) {
       <div className='flex'>
         {/* Sidebar */}
         <div className='fixed h-full'>
-          <ul className='w-16 h-full m-2 bg-black sm:w-56 menu rounded-box'>
+          <ul className='menu m-2 h-full w-16 rounded-box bg-black sm:w-56'>
             <li>
               <Link href='/profile' className='flex items-center'>
                 <UserRoundPen />
-                <span className='hidden ml-2 sm:inline'>Profile</span>
+                <span className='ml-2 hidden sm:inline'>Profile</span>
               </Link>
             </li>
             <li>
               <Link href='/profile/addresses' className='flex items-center'>
                 <MapPinHouse />
 
-                <span className='hidden ml-2 sm:inline'> Addresses</span>
+                <span className='ml-2 hidden sm:inline'> Addresses</span>
               </Link>
             </li>
             <li>
               <Link href='/profile/orders' className='flex items-center'>
                 <ListOrdered />
-                <span className='hidden ml-2 sm:inline'> Orders</span>
+                <span className='ml-2 hidden sm:inline'> Orders</span>
               </Link>
             </li>
             <li>
               <Link href='/profile/transactions' className='flex items-center'>
                 <BadgeDollarSign />
-                <span className='hidden ml-2 sm:inline'> Transactions</span>
+                <span className='ml-2 hidden sm:inline'> Transactions</span>
               </Link>
             </li>
           </ul>
         </div>
         {/* Main content */}
-        <div className='flex-1 ml-16 sm:ml-56'>
-          <div className='container px-4 py-8 mx-auto'>
-            <div className='p-6 rounded-lg shadow-md bg-base-100'>{children}</div>
+        <div className='ml-16 flex-1 sm:ml-56'>
+          <div className='container mx-auto px-4 py-8'>
+            <div className='rounded-lg bg-base-100 p-6 shadow-md'>{children}</div>
           </div>
         </div>
       </div>

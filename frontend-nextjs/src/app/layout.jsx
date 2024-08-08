@@ -19,7 +19,7 @@ export default function RootLayout({children}) {
       <body className={`${lexend.className} bg-[#101827]`}>
         <AuthProvider>
           <NextNprogress>
-            <main className='flex flex-col min-h-screen'>
+            <main className='flex min-h-screen flex-col'>
               <div className='flex-1'>
                 {children} <SonnerToast />
               </div>

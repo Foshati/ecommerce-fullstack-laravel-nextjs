@@ -44,7 +44,7 @@ export default function ResendOtp() {
   }, [seconds, minutes]);
 
   return (
-    <div className='flex flex-row items-center justify-center p-2 mt-4 space-x-1 text-sm font-medium text-center text-gray-500'>
+    <div className='mt-4 flex flex-row items-center justify-center space-x-1 p-2 text-center text-sm font-medium text-gray-500'>
       {seconds > 0 || minutes > 0 ? (
         <div>
           <span className='countdown'>
@@ -52,8 +52,8 @@ export default function ResendOtp() {
           </span>
         </div>
       ) : (
-        <form className='flex gap-2 ' action={formActionResendOtp}>
-          <p>Didn't receive the code?</p>
+        <form className='flex gap-2' action={formActionResendOtp}>
+          <p>Did not receive the code?</p>
           <SubButton
             title='Resend'
             style='flex flex-row items-center text-blue-600 hover:text-red-500'

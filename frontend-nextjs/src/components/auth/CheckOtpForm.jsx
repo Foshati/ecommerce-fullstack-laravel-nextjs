@@ -21,7 +21,7 @@ export default function CheckOtpForm() {
         router.push('/');
       }
     }
-  }, [stateOtp]);
+  }, [stateOtp, loginContext, router]);
 
   // State for individual OTP digits and the complete OTP string
   const [otp, setOtp] = useState(new Array(6).fill(''));
@@ -59,18 +59,18 @@ export default function CheckOtpForm() {
   };
 
   return (
-    <div className='flex items-center justify-center min-h-screen py-12'>
-      <div className='w-full max-w-md px-6 pt-10 mx-auto bg-black shadow-xl pb-9 rounded-2xl'>
-        <p className='flex justify-center py-4 mb-4'>Enter the one-time use code</p>
+    <div className='flex min-h-screen items-center justify-center py-12'>
+      <div className='mx-auto w-full max-w-md rounded-2xl bg-black px-6 pb-9 pt-10 shadow-xl'>
+        <p className='mb-4 flex justify-center py-4'>Enter the one-time use code</p>
 
         <form action={formActionOtp}>
-          <div className='flex justify-center mb-4 space-x-2'>
+          <div className='mb-4 flex justify-center space-x-2'>
             {otp.map((data, index) => (
               <input
                 key={index}
                 type='text'
                 maxLength={1}
-                className='w-12 h-12 text-2xl text-center border border-gray-300 rounded-md otp-input focus:outline-none focus:border-indigo-500'
+                className='otp-input h-12 w-12 rounded-md border border-gray-300 text-center text-2xl focus:border-indigo-500 focus:outline-none'
                 value={data}
                 onChange={(e) => handleChange(e.target, index)}
                 onKeyDown={(e) => handleKeyDown(e, index)}
@@ -80,7 +80,7 @@ export default function CheckOtpForm() {
             ))}
           </div>
           <input type='hidden' name='otp' value={otpString} />
-          <div className='flex justify-center mt-8'>
+          <div className='mt-8 flex justify-center'>
             <SubButton title='Submit' style='btn btn-wide' isFormValid={isFormValid} />
           </div>
         </form>

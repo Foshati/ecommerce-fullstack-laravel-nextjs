@@ -11,11 +11,11 @@ import NavbarList from './NavbarList';
 function Header() {
   const {user} = useContext(AuthContext);
   return (
-    <header className='sticky top-0 left-0 z-50 w-full mx-auto transition-all bg-black bg-opacity-50 isSticky'>
-      <div className='bg-black bg-opacity-50 navbar'>
+    <header className='isSticky sticky left-0 top-0 z-50 mx-auto w-full bg-black bg-opacity-50 transition-all'>
+      <div className='navbar bg-black bg-opacity-50'>
         <div className='navbar-start'>
           <div className='dropdown'>
-            <div tabIndex={0} role='button' className='btn btn-ghost lg:hidden btn-circle'>
+            <div tabIndex={0} role='button' className='btn btn-circle btn-ghost lg:hidden'>
               <Menu />
             </div>
             <div className='ml-4'>
@@ -24,23 +24,19 @@ function Header() {
           </div>
           <Utensils />
         </div>
-        <div className='hidden navbar-center lg:flex'>
+        <div className='navbar-center hidden lg:flex'>
           <NavbarList />
         </div>
-        <div className='flex gap-4 navbar-end'>
-          <div className='hidden form-control lg:block'>
-            <input
-              type='text'
-              placeholder='Search'
-              className='w-24 input input-bordered md:w-auto'
-            />
+        <div className='navbar-end flex gap-4'>
+          <div className='form-control hidden lg:block'>
+            <input type='text' placeholder='Search' className='input input-bordered w-24 md:w-auto' />
           </div>
           {user ? (
-            <Link href='/profile' className=' btn btn-circle btn-ghost'>
+            <Link href='/profile' className='btn btn-circle btn-ghost'>
               <UserRound />
             </Link>
           ) : (
-            <Link href='/auth/login' className=' btn btn-circle btn-ghost'>
+            <Link href='/auth/login' className='btn btn-circle btn-ghost'>
               <Fingerprint />
             </Link>
           )}

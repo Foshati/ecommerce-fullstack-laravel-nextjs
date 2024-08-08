@@ -16,5 +16,6 @@
   "quoteProps": "as-needed",
   "requirePragma": false,
   "useTabs": false,
-  "embeddedLanguageFormatting": "auto"
+  "embeddedLanguageFormatting": "auto",
+  "plugins": ["prettier-plugin-tailwindcss"]
 }

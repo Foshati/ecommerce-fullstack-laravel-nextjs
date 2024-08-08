@@ -16,13 +16,13 @@ export default async function MenuPage({searchParams}) {
   return (
     <div className=''>
       <section className='flex'>
-        <div className='flex-col hidden gap-8 p-4 my-12 ml-8 bg-black lg:flex rounded-3xl'>
+        <div className='my-12 ml-8 hidden flex-col gap-8 rounded-3xl bg-black p-4 lg:flex'>
           <SearchMenu />
           <CategoriesList categoriesFetch={categoriesFetch} />
 
           <Sort />
         </div>
-        <div className='flex items-center justify-center flex-grow mt-4'>
+        <div className='mt-4 flex flex-grow items-center justify-center'>
           <Suspense key={params.toString()} fallback={<Loading />}>
             <ProductList params={params.toString()} />
           </Suspense>
