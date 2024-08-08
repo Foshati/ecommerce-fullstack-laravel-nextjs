@@ -8,21 +8,27 @@ import {useContext} from 'react';
 
 export default function Logout() {
   const {logoutContext} = useContext(AuthContext);
-
   const router = useRouter();
+
+  const handleLogout = async (event) => {
+    event.preventDefault();
+    try {
+      await AuthActionLogout();
+      logoutContext();
+      router.push('/');
+    } catch (error) {
+      console.error('Logout failed:', error);
+    }
+  };
+
   return (
     <div>
-      <a
-        href='#'
-        onClick={async () => {
-          await AuthActionLogout();
-          logoutContext();
-          router.push('/');
-        }}
-        className='flex items-center'>
-        <LogOut />
-        <span className='ml-2 hidden sm:inline'> Log Out</span>
-      </a>
+      <button onClick={handleLogout} className='flex'>
+        <span>
+          <LogOut className='hover:text-red-500' />
+        </span>
+        <span className='ml-4'>Log Out</span>
+      </button>
     </div>
   );
 }
