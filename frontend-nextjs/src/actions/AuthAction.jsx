@@ -147,4 +147,20 @@ async function AuthActionMe() {
   }
 }
 
-export {AuthActionLogin, AuthActionOtp, AuthActionMe, AuthActionResendOtp};
+async function AuthActionLogout() {
+  const token = cookies().get('token');
+
+  const data = await postFetch('/auth/logout', {}, {Authorization: `Bearer ${token.value}`});
+  if (data.status === 'success') {
+    cookies().delete('token');
+    return {
+      success: 'You are logged out',
+    };
+  } else {
+    return {
+      error: 'User Forbidden',
+    };
+  }
+}
+
+export {AuthActionLogin, AuthActionOtp, AuthActionMe, AuthActionResendOtp, AuthActionLogout};

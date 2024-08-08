@@ -19,11 +19,13 @@ export const AuthProvider = ({children}) => {
     checkUserLogin();
   }, []);
 
-  // is a function that updates the user status
   const loginContext = (user) => {
     setUser(user);
-    // console.log(user, 'AuthContext');
   };
 
-  return <AuthContext.Provider value={{user, loginContext}}>{children}</AuthContext.Provider>;
+  const logoutContext = () => {
+    setUser(null);
+  };
+
+  return <AuthContext.Provider value={{user, loginContext, logoutContext}}>{children}</AuthContext.Provider>;
 };
