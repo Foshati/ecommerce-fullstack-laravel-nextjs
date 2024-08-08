@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbo",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -13,7 +13,7 @@
     "framer-motion": "^11.3.18",
     "install": "^0.13.0",
     "leaflet": "^1.9.4",
-    "lucide-react": "^0.390.0",
+    "lucide-react": "^0.424.0",
     "next": "^14.2.4",
     "next-nprogress-bar": "^2.3.12",
     "preline": "^2.3.0",
