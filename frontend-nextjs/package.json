@@ -25,7 +25,8 @@
     "react-dom": "^18",
     "react-tabs": "^6.0.2",
     "sonner": "^1.5.0",
-    "swr": "^2.2.5"
+    "swr": "^2.2.5",
+    "zustand": "^4.5.5"
   },
   "devDependencies": {
     "daisyui": "^4.11.1",

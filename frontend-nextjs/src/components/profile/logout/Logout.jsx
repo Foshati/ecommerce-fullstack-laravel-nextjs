@@ -27,7 +27,7 @@ export default function Logout() {
         <span>
           <LogOut className='hover:text-red-500' />
         </span>
-        <span className='ml-4'>Log Out</span>
+        <span className='ml-4 hidden lg:flex'>Log Out</span>
       </button>
     </div>
   );

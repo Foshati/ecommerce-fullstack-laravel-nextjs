@@ -1,7 +1,7 @@
 'use client';
 import {useContext} from 'react';
 
-import {Fingerprint, Menu, UserRound, Utensils} from 'lucide-react';
+import {Fingerprint, Menu, ShoppingCart, UserRound, Utensils} from 'lucide-react';
 
 import Link from 'next/link';
 import {AuthContext} from '@/src/context/AuthContext';
@@ -32,9 +32,15 @@ function Header() {
             <input type='text' placeholder='Search' className='input input-bordered w-24 md:w-auto' />
           </div>
           {user ? (
-            <Link href='/profile' className='btn btn-circle btn-ghost'>
-              <UserRound />
-            </Link>
+            <>
+              <Link href='/basket' className='btn btn-circle btn-ghost'>
+                <ShoppingCart />
+              </Link>
+
+              <Link href='/profile' className='btn btn-circle btn-ghost'>
+                <UserRound />
+              </Link>
+            </>
           ) : (
             <Link href='/auth/login' className='btn btn-circle btn-ghost'>
               <Fingerprint />
